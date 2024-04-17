@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #161617;
+  backdrop-filter: blur(140px);
+  color: white;
+}
+.nav-links ul {
+  gap: 30px;
+}
+.nav-icons {
+  gap: 25px;
+}
+.fa-apple {
+  font-size: 1.1em;
+}
+.nav-icons i {
+  font-size: 0.9em;
+  color: silver;
+}
+.nav-link {
+  padding: 12px 5px;
+  font-size: 0.7em;
+}
+
+.bar-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 0;
+}
+.bar-btn:hover {
+  cursor: pointer;
+}
+.bar {
+  width: 15px;
+  height: 1px;
+  background-color: white;
+}
+.first-section,
+.second-section,
+.third-section {
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  padding-top: 50px;
+}
+.fourth-left-section,
+.fourth-right-section,
+.fifth-left-section,
+.fifth-right-section,
+.sixth-left-section,
+.sixth-right-section {
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  padding-top: 50px;
+}
+.first-section {
+  background-image: url("./images/hero-iphone.jpg");
+}
+.second-section,
+.third-section {
+  padding-bottom: 40px;
+}
+.second-section {
+  background-image: url("./images/hero-vision.jpg");
+}
+.third-section {
+  background-image: url("./images/hero-valentine.jpg");
+}
+.fourth-left-section {
+  background-image: url("./images/hero-fourth-iphone.jpg");
+}
+.fourth-right-section {
+  background-image: url("./images/hero-fourth-watch.jpg");
+}
+.fifth-left-section {
+  background-image: url("./images/hero-macbook.jpg");
+}
+.fifth-right-section {
+  background-image: url("./images/hero-ipad.jpg");
+}
+.sixth-left-section {
+  background-image: url("./images/apple-card.jpg");
+}
+.sixth-right-section {
+  background-image: url("./images/old-device.jpg");
+}
+.first-section-content {
+  color: white;
+}
+.first-section-content h1,
+.second-section-content h1,
+.third-section-content h1 {
+  font-size: 3.5em;
+  font-weight: 500;
+  letter-spacing: -3px;
+}
+.fourth-left-section-content h1,
+.fourth-right-heading h1,
+.fifth-left-section-content h1,
+.fifth-right-section-content h1,
+.sixth-left-section-content h1,
+.sixth-right-section-content h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+.series-9-text {
+  font-size: 0.8em;
+  color: rgb(223, 15, 15);
+  letter-spacing: 3px;
+}
+.fourth-left-section-content h3,
+.fourth-right-section-content h3,
+.fifth-right-section-content h3,
+.fifth-left-section-content h3,
+.sixth-right-section-content h3,
+.sixth-left-section-content h3 {
+  font-size: 1.3em;
+}
+.first-section-content h3,
+.second-section-content h3,
+.third-section-content h3 {
+  font-size: 1.6em;
+}
+.first-section-links a,
+.second-section-links a {
+  color: rgb(28, 105, 247);
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.third-section-links a,
+.fourth-section-links a,
+.fifth-section-links a,
+.sixth-section-links a {
+  color: rgb(28, 105, 247);
+  text-decoration: none;
+  font-size: 1em;
+}
+.first-section-links span:hover,
+.second-section-links span:hover,
+.third-section-links span:hover,
+.fourth-section-links span:hover,
+.sixth-section-links span:hover {
+  text-decoration: underline;
+}
+footer {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  padding: 0 13px;
+}
+.upper-footer-part {
+  /* min-width: 768px; */
+  width: 100%;
+  /* padding: 0 13px; */
+}
+.upper-para {
+  /* width: 960px; */
+  max-width: 960px;
+  /* min-width: 400px; */
+  flex-shrink: 1;
+  margin: 0 auto;
+}
+.lower-footer-part {
+  max-width: 960px;
+  /* min-width: 400px; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+  /* gap: 30px; */
+}
+.upper-footer-part p {
+  font-size: 0.7em;
+  color: rgb(109, 109, 109);
+  margin-bottom: 8px;
+}
+.lower-inner-heading h1 {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: rgb(58, 58, 58);
+}
+.lower-inner-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: rgb(122, 122, 122);
+}
+.lower-inner-links a {
+  font-size: 0.7em;
+}
+@media screen and (min-width: 748px) and (max-width: 979px) {
+  .nav-links ul {
+    gap: 5px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .fa-apple {
+    font-size: 1.5em;
+  }
+  .nav-icons i {
+    font-size: 1.2em;
+  }
+  header {
+    padding: 10px 0;
+  }
+  .nav-link {
+    font-size: 1.7em;
+    padding: 4px 0;
+  }
+  .offcanvas-body {
+    background-color: #161617;
+  }
+  .fa-close {
+    color: white;
+  }
+  .first-section {
+    background-image: url("./images/hero-small-ipone.jpg");
+    height: 50vh;
+  }
+  .first-section-content *,
+  .second-section-content *,
+  .third-section-content * {
+    line-height: 1;
+  }
+  .first-section-content h1,
+  .second-section-content h1,
+  .third-section-content h1 {
+    font-size: 2em;
+    letter-spacing: -1px;
+  }
+  .first-section-content h3,
+  .second-section-content h3,
+  .third-section-content h3,
+  .second-section-content i {
+    font-size: 1.1em;
+  }
+  .second-section-content h3 {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .first-section-links a,
+  .second-section-links a,
+  .third-section-links a {
+    font-size: 1em;
+  }
+  .fourth-right-section,
+  .fourth-left-section,
+  .second-section,
+  .third-section,
+  .fifth-left-section,
+  .fifth-right-section,
+  .sixth-left-section,
+  .sixth-right-section {
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* height: 55vh; */
+  }
+  .second-section {
+    background-image: url("./images/hero-vision-small.jpg");
+  }
+  .third-section {
+    background-image: url("./images/hero-valentine-small.jpg");
+  }
+  .fourth-left-section {
+    background-image: url("./images/hero-fourth-small-iphone.jpg");
+  }
+  .fourth-right-section {
+    background-image: url("./images/hero-fourth-small-watch.jpg");
+  }
+  .fifth-left-section {
+    background-image: url("./images/hero-macbook-small.jpg");
+  }
+  .fifth-right-section {
+    background-image: url("./images/hero-ipad-small.jpg");
+  }
+  .sixth-right-section {
+    background-image: url("./images/apple-card-small.jpg");
+  }
+  .sixth-left-section {
+    background-image: url("./images/old-device-small.jpg");
+  }
+  .lower-footer-part {
+    display: none;
+  }
+  .lower-inner-links a:hover {
+    text-decoration: underline;
+  }
+}

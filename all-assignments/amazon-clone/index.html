@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Amazon Clone</title>
+        <!-- fontawesome link -->
+        <script src="https://kit.fontawesome.com/e42725d427.js" crossorigin="anonymous"></script>
+        <!-- bootstrap link -->
+        <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.min.css">
+        <!-- my styles -->
+        <link rel="stylesheet" href="./css/index.css">
+    </head>
+
+    <body>
+        <div class="d-flex align-items-start flex-column  text-white navigation-container" id="top">
+            <div class="d-flex align-items-center w-100 navigation-inner">
+                <div class=" d-flex justify-content-center align-items-center logo ">
+                    <img src="./images/amazon-logo-white.png" class="" alt="">
+                </div>
+                <div class=" location d-flex justify-content-center align-items-center  ">
+                    <div class="location-icon fs-5 p-2">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="location-name pt-1">
+                        <div>Deliver to <br> <strong>Pakistan</strong></div>
+                    </div>
+                </div>
+                <div class="search-field ">
+                    <div class="input-group">
+                        <button class="btn btn-outline-white dropdown-toggle location-all-dropdown" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">All</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action before</a></li>
+                            <li><a class="dropdown-item" href="#">Another action before</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                        <input type="text" class="form-control" aria-label="Text input with 2 dropdown buttons">
+                        <button class="btn search-btn" type="button">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class=" language ">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle d-flex justify-content-start align-items-center"
+                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="./images/us-flag.png" class="img-fluid us-flag-icon-dropdown-btn" alt="">
+                            <span class="text-white ms-1">EN</span>
+                        </button>
+                        <div class="dropdown-menu language-dropdown-menu px-2">
+                            <div class="currency-title d-flex justify-content-between mb-2">
+                                <div>Choose Language</div>
+                                <div><a href="#"
+                                        class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Learn
+                                        More</a>
+                                </div>
+                            </div>
+                            <form action="#">
+                                <div class="language-options ">
+                                    <div class="form-check">
+                                        <input type="radio" name="language" id="english" class="form-check-input">
+                                        <label for="english">English EN</label>
+                                    </div>
+                                    <hr>
+                                    <div class="form-check">
+                                        <input type="radio" name="language" id="english" class="form-check-input">
+                                        <label for="english">English EN</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="language" id="english" class="form-check-input">
+                                        <label for="english">English EN</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="language" id="english" class="form-check-input">
+                                        <label for="english">English EN</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="language" id="english" class="form-check-input">
+                                        <label for="english">English EN</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="language" id="english" class="form-check-input">
+                                        <label for="english">English EN</label>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="change-currency mt-3">
+                                <div class="currency-title d-flex justify-content-between align-items-center mb-1">
+                                    <div>Choose Currency</div>
+                                    <div>
+                                        <a href="#"
+                                            class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Learn
+                                            More</a>
+                                    </div>
+                                </div>
+                                <div class="currency-changing d-flex justify-content-between align-items-center">
+                                    <div>$ - USD - US Dollar</div>
+                                    <div>
+                                        <a href="#"
+                                            class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Change</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-last-section">
+                                <div class="mt-2">
+                                    <img src="./images/us-flag.png" class="img-fluid us-flag-icon-last-section me-1"
+                                        alt="">You are shopping on
+                                    Amazon.com
+                                </div>
+                                <div class="mt-1 d-flex justify-content-center">
+                                    <a href="#"
+                                        class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Change
+                                        Country/Region</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" account ">
+                    <div class="dropdown-center">
+                        <div class="dropdown-toggle account-text-field" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Hello, sign in <br><strong>Account & Lists</strong>
+                        </div>
+                        <div class="dropdown-menu signin-dropdown-menu px-2">
+                            <div class="signin-info d-flex flex-column align-items-center mb-2">
+                                <div><a href="#" class="btn btn-warning">Sign in</a></div>
+                                <div>New Customer?<a href="#"
+                                        class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Start
+                                        Here</a>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="dropdown-lower-info d-flex align-items-start justify-content-between">
+                                <div class="dropdown-left">
+                                    <h3>Your Lists</h3>
+                                    <div class="left-list">
+                                        <div><a href="" class="nav-link">Create a list</a></div>
+                                        <div><a href="" class="nav-link">Find a list or registry</a></div>
+                                    </div>
+                                </div>
+                                <hr class="account-dropdown-hr">
+                                <div class=" dropdown-right">
+                                    <h3>Your Account</h3>
+                                    <div class="right-list">
+                                        <div><a href="" class="nav-link">Account</a></div>
+                                        <div><a href="" class="nav-link">Orders</a></div>
+                                        <div><a href="" class="nav-link">Recommendations</a></div>
+                                        <div><a href="" class="nav-link">Browser History</a></div>
+                                        <div><a href="" class="nav-link">Browser History</a></div>
+                                        <div><a href="" class="nav-link">Browser History</a></div>
+                                        <div><a href="" class="nav-link">Browser History</a></div>
+                                        <div><a href="" class="nav-link">Browser History</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" returns ">
+                    <div>Returns <br><strong>& Orders</strong></div>
+                </div>
+                <div class=" cart ">
+                    <div class="cart-left">
+                        <img src="./images/cart-icon.png" class="cart-icon" alt="">
+                        <div class="number-of-items">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="lower-part-navigation d-flex justify-content-start align-content-center align-items-center">
+                <div class="all-btn">
+                    <a class="btn rounded-0 text-white" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                        role="button" aria-controls="offcanvasExample">
+                        <i class="fa-solid fa-bars"></i> All
+                    </a>
+                    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                        aria-labelledby="offcanvasExampleLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div>
+                                Some text as placeholder. In real life you can have the elements you have chosen. Like,
+                                text,
+                                images, lists, etc.
+                            </div>
+                            <div class="dropdown mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown">
+                                    Dropdown button
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lower-nav-list d-flex align-items-center justify-content-start text-white gap-3 ">
+                    <div><a href="" class="nav-link">Today's Deals</a></div>
+                    <div><a href="" class="nav-link">Customer Service</a></div>
+                    <div><a href="" class="nav-link">Registry</a></div>
+                    <div><a href="" class="nav-link">Gift Cards</a></div>
+                    <div><a href="" class="nav-link">Sell</a></div>
+                </div>
+            </div>
+        </div>
+        <section>
+            <div class="section-inner-container d-flex justify-content-center">
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item first-carousel active text-center">
+                            <img src="./images/slider-pic-1.jpg" class="d-block " width="100%" alt="...">
+                            <!-- <h1>three</h1> -->
+                        </div>
+                        <div class="carousel-item first-carousel  text-center">
+                            <img src="./images/slider-pic-2.jpg" width="100%" class="d-block " alt="...">
+                            <!-- <h1>three</h1> -->
+                        </div>
+                        <div class="carousel-item first-carousel  text-center">
+                            <img src="./images/slider-pic-3.jpg" width="100%" class="d-block" alt="...">
+                            <!-- <h1>three</h1> -->
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden=" true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="all-box-container">
+                    <div class="boxes-row">
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="box-images">
+                                    <div class="box-img-inner-first-row">
+                                        <div class="box-img">
+                                            <img src="./images/headset.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                        <div class="box-img">
+                                            <img src="./images/keyboard.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                    </div>
+                                    <div class="box-img-inner-second-row">
+                                        <div class="box-img">
+                                            <img src="./images/mouse.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                        <div class="box-img">
+                                            <img src="./images/chair.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">See more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="single-box-img">
+                                    <img src="./images/office-products.jpg" alt="">
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">Shop office products</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="single-box-img">
+                                    <img src="./images/office-products.jpg" alt="">
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">Shop office products</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="single-box-img">
+                                    <img src="./images/office-products.jpg" alt="">
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">Shop office products</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxes-row">
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="box-images">
+                                    <div class="box-img-inner-first-row">
+                                        <div class="box-img">
+                                            <img src="./images/headset.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                        <div class="box-img">
+                                            <img src="./images/keyboard.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                    </div>
+                                    <div class="box-img-inner-second-row">
+                                        <div class="box-img">
+                                            <img src="./images/mouse.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                        <div class="box-img">
+                                            <img src="./images/chair.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">See more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="box-images">
+                                    <div class="box-img-inner-first-row">
+                                        <div class="box-img">
+                                            <img src="./images/headset.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                        <div class="box-img">
+                                            <img src="./images/keyboard.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                    </div>
+                                    <div class="box-img-inner-second-row">
+                                        <div class="box-img">
+                                            <img src="./images/mouse.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                        <div class="box-img">
+                                            <img src="./images/chair.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">See more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="single-box-img">
+                                    <img src="./images/office-products.jpg" alt="">
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">Shop office products</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="single-box-img">
+                                    <img src="./images/office-products.jpg" alt="">
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">Shop office products</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="only-images-without-box-row">
+                        <h1>Popular products in Beauty internationally</h1>
+                        <div class="single-image-container">
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="only-images-without-box-row">
+                        <h1>Popular products in Beauty internationally</h1>
+                        <div class="single-image-container">
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxes-row">
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="single-box-img">
+                                    <img src="./images/office-products.jpg" alt="">
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">Shop office products</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="single-box-img">
+                                    <img src="./images/office-products.jpg" alt="">
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">Shop office products</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="box-images">
+                                    <div class="box-img-inner-first-row">
+                                        <div class="box-img">
+                                            <img src="./images/headset.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                        <div class="box-img">
+                                            <img src="./images/keyboard.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                    </div>
+                                    <div class="box-img-inner-second-row">
+                                        <div class="box-img">
+                                            <img src="./images/mouse.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                        <div class="box-img">
+                                            <img src="./images/chair.jpg" alt="">
+                                            <a href="#" class="nav-link">Headsets</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">See more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="single-box-img">
+                                    <img src="./images/office-products.jpg" alt="">
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">Shop office products</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="only-images-without-box-row">
+                        <h1>Popular products in Beauty internationally</h1>
+                        <div class="single-image-container">
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxes-row">
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="single-box-img">
+                                    <img src="./images/office-products.jpg" alt="">
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">Shop office products</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="single-box-img">
+                                    <img src="./images/office-products.jpg" alt="">
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">Shop office products</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="single-box-img">
+                                    <img src="./images/office-products.jpg" alt="">
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">Shop office products</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-container">
+                            <div class="box">
+                                <h1>Gaming Accessories</h1>
+                                <div class="single-box-img">
+                                    <img src="./images/office-products.jpg" alt="">
+                                </div>
+                                <div class="box-see-more-link">
+                                    <a href="#" class="nav-link">Shop office products</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="only-images-without-box-row">
+                        <h1>Popular products in Beauty internationally</h1>
+                        <div class="single-image-container">
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="only-images-without-box-row">
+                        <h1>Popular products in Beauty internationally</h1>
+                        <div class="single-image-container">
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                            <div class="single-image">
+                                <img src="./images/chair.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="last-slider-products">
+                <h1>Customers who viewed items in your browsing history also viewed</h1>
+                <div class="last-slider-container">
+                    <div class="last-slider-image">
+                        <div class="slider-img">
+                            <img src="./images/keyboard.jpg" alt="">
+                        </div>
+                        <div class="slider-link">
+                            <a href="#" class="nav-link">Neutrogena Clear Face Liquid Lotion Sunscreen for
+                                Acne-Prone Skin, Broad Spectrum SPF 50 UVA/UVB Protection, Oil-, Fragrance- &
+                                Oxybenzone-Free Facial Sunscreen, Non-Comedogenic, 3 fl. oz</a>
+                        </div>
+                        <div class="ranking">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star "></i>
+                        </div>
+                        <div class="price">
+                            $10.07
+                        </div>
+                    </div>
+                    <div class="last-slider-image">
+                        <div class="slider-img">
+                            <img src="./images/keyboard.jpg" alt="">
+                        </div>
+                        <div class="slider-link">
+                            <a href="#" class="nav-link">Neutrogena Clear Face Liquid Lotion Sunscreen for
+                                Acne-Prone Skin, Broad Spectrum SPF 50 UVA/UVB Protection, Oil-, Fragrance- &
+                                Oxybenzone-Free Facial Sunscreen, Non-Comedogenic, 3 fl. oz</a>
+                        </div>
+                        <div class="ranking">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star "></i>
+                        </div>
+                        <div class="price">
+                            $10.07
+                        </div>
+                    </div>
+                    <div class="last-slider-image">
+                        <div class="slider-img">
+                            <img src="./images/keyboard.jpg" alt="">
+                        </div>
+                        <div class="slider-link">
+                            <a href="#" class="nav-link">Neutrogena Clear Face Liquid Lotion Sunscreen for
+                                Acne-Prone Skin, Broad Spectrum SPF 50 UVA/UVB Protection, Oil-, Fragrance- &
+                                Oxybenzone-Free Facial Sunscreen, Non-Comedogenic, 3 fl. oz</a>
+                        </div>
+                        <div class="ranking">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star "></i>
+                        </div>
+                        <div class="price">
+                            $10.07
+                        </div>
+                    </div>
+                    <div class="last-slider-image">
+                        <div class="slider-img">
+                            <img src="./images/keyboard.jpg" alt="">
+                        </div>
+                        <div class="slider-link">
+                            <a href="#" class="nav-link">Neutrogena Clear Face Liquid Lotion Sunscreen for
+                                Acne-Prone Skin, Broad Spectrum SPF 50 UVA/UVB Protection, Oil-, Fragrance- &
+                                Oxybenzone-Free Facial Sunscreen, Non-Comedogenic, 3 fl. oz</a>
+                        </div>
+                        <div class="ranking">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star "></i>
+                        </div>
+                        <div class="price">
+                            $10.07
+                        </div>
+                    </div>
+                    <div class="last-slider-image">
+                        <div class="slider-img">
+                            <img src="./images/keyboard.jpg" alt="">
+                        </div>
+                        <div class="slider-link">
+                            <a href="#" class="nav-link">Neutrogena Clear Face Liquid Lotion Sunscreen for
+                                Acne-Prone Skin, Broad Spectrum SPF 50 UVA/UVB Protection, Oil-, Fragrance- &
+                                Oxybenzone-Free Facial Sunscreen, Non-Comedogenic, 3 fl. oz</a>
+                        </div>
+                        <div class="ranking">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star "></i>
+                        </div>
+                        <div class="price">
+                            $10.07
+                        </div>
+                    </div>
+                    <div class="last-slider-image">
+                        <div class="slider-img">
+                            <img src="./images/keyboard.jpg" alt="">
+                        </div>
+                        <div class="slider-link">
+                            <a href="#" class="nav-link">Neutrogena Clear Face Liquid Lotion Sunscreen for
+                                Acne-Prone Skin, Broad Spectrum SPF 50 UVA/UVB Protection, Oil-, Fragrance- &
+                                Oxybenzone-Free Facial Sunscreen, Non-Comedogenic, 3 fl. oz</a>
+                        </div>
+                        <div class="ranking">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star "></i>
+                        </div>
+                        <div class="price">
+                            $10.07
+                        </div>
+                    </div>
+                    <div class="last-slider-image">
+                        <div class="slider-img">
+                            <img src="./images/keyboard.jpg" alt="">
+                        </div>
+                        <div class="slider-link">
+                            <a href="#" class="nav-link">Neutrogena Clear Face Liquid Lotion Sunscreen for
+                                Acne-Prone Skin, Broad Spectrum SPF 50 UVA/UVB Protection, Oil-, Fragrance- &
+                                Oxybenzone-Free Facial Sunscreen, Non-Comedogenic, 3 fl. oz</a>
+                        </div>
+                        <div class="ranking">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star "></i>
+                        </div>
+                        <div class="price">
+                            $10.07
+                        </div>
+                    </div>
+                    <div class="last-slider-image">
+                        <div class="slider-img">
+                            <img src="./images/keyboard.jpg" alt="">
+                        </div>
+                        <div class="slider-link">
+                            <a href="#" class="nav-link">Neutrogena Clear Face Liquid Lotion Sunscreen for
+                                Acne-Prone Skin, Broad Spectrum SPF 50 UVA/UVB Protection, Oil-, Fragrance- &
+                                Oxybenzone-Free Facial Sunscreen, Non-Comedogenic, 3 fl. oz</a>
+                        </div>
+                        <div class="ranking">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star "></i>
+                        </div>
+                        <div class="price">
+                            $10.07
+                        </div>
+                    </div>
+                    <div class="last-slider-image">
+                        <div class="slider-img">
+                            <img src="./images/keyboard.jpg" alt="">
+                        </div>
+                        <div class="slider-link">
+                            <a href="#" class="nav-link">Neutrogena Clear Face Liquid Lotion Sunscreen for
+                                Acne-Prone Skin, Broad Spectrum SPF 50 UVA/UVB Protection, Oil-, Fragrance- &
+                                Oxybenzone-Free Facial Sunscreen, Non-Comedogenic, 3 fl. oz</a>
+                        </div>
+                        <div class="ranking">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star "></i>
+                        </div>
+                        <div class="price">
+                            $10.07
+                        </div>
+                    </div>
+                    <div class="last-slider-image">
+                        <div class="slider-img">
+                            <img src="./images/keyboard.jpg" alt="">
+                        </div>
+                        <div class="slider-link">
+                            <a href="#" class="nav-link">Neutrogena Clear Face Liquid Lotion Sunscreen for
+                                Acne-Prone Skin, Broad Spectrum SPF 50 UVA/UVB Protection, Oil-, Fragrance- &
+                                Oxybenzone-Free Facial Sunscreen, Non-Comedogenic, 3 fl. oz</a>
+                        </div>
+                        <div class="ranking">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star "></i>
+                        </div>
+                        <div class="price">
+                            $10.07
+                        </div>
+                    </div>
+                    <div class="last-slider-image">
+                        <div class="slider-img">
+                            <img src="./images/keyboard.jpg" alt="">
+                        </div>
+                        <div class="slider-link">
+                            <a href="#" class="nav-link">Neutrogena Clear Face Liquid Lotion Sunscreen for
+                                Acne-Prone Skin, Broad Spectrum SPF 50 UVA/UVB Protection, Oil-, Fragrance- &
+                                Oxybenzone-Free Facial Sunscreen, Non-Comedogenic, 3 fl. oz</a>
+                        </div>
+                        <div class="ranking">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star "></i>
+                        </div>
+                        <div class="price">
+                            $10.07
+                        </div>
+                    </div>
+                    <div class="last-slider-image">
+                        <div class="slider-img">
+                            <img src="./images/keyboard.jpg" alt="">
+                        </div>
+                        <div class="slider-link">
+                            <a href="#" class="nav-link">Neutrogena Clear Face Liquid Lotion Sunscreen for
+                                Acne-Prone Skin, Broad Spectrum SPF 50 UVA/UVB Protection, Oil-, Fragrance- &
+                                Oxybenzone-Free Facial Sunscreen, Non-Comedogenic, 3 fl. oz</a>
+                        </div>
+                        <div class="ranking">
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star text-warning"></i>
+                            <i class="fa-solid fa-star "></i>
+                        </div>
+                        <div class="price">
+                            $10.07
+                        </div>
+                    </div>
+                </div>
+                <div class="last-slider-footer">
+                    <div class="last-slider-footer-inner">
+                        <div class="paragraph">
+                            See personalized recommendations
+                        </div>
+                        <div class="last-btn">
+                            <a href="#">Sign in</a>
+                        </div>
+                        <div class="last-text">
+                            New Customer? <a href="#">Start Here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <a href="#top" class="back-to-top">Back to top</a>
+        <footer>
+            <div class="footer-first-section">
+                <div class="footer-first-container">
+                    <div class="footer-content">
+                        <h4>Get to Know Us</h4>
+
+                        <div>Careers</div>
+                        <div>Blogs</div>
+                        <div>About Amazon</div>
+                        <div>Investor Relations</div>
+                        <div>Amazon Devices</div>
+                        <div>Amazon Science</div>
+
+                    </div>
+                    <div class="footer-content">
+                        <h4>Make Money with Us</h4>
+
+                        <div>Sell products on amazon</div>
+                        <div>Sell products on amazon</div>
+                        <div>Sell products on amon</div>
+                        <div>Sell products on am</div>
+                        <div>Sell products on amssazon</div>
+                        <div>Sell products on amazon</div>
+                        <div>Sell products oazon</div>
+
+                    </div>
+                    <div class="footer-content">
+                        <h4>Amazon Payment Products</h4>
+
+                        <div>Amazon Business Card</div>
+                        <div>Amazon Business </div>
+                        <div>Amazon Business Balance</div>
+                        <div>Amazon Business COnverter</div>
+
+                    </div>
+                    <div class="footer-content">
+                        <h4>Let Us Help You</h4>
+
+                        <div>Amazon Business Card</div>
+                        <div>Amazon Business </div>
+                        <div>Amazon Business Balance</div>
+                        <div>Amazon Business COnverter</div>
+
+                    </div>
+                </div>
+                <div class="footer-extras">
+                    <div class="logo">
+                        <img src="./images/amazon-logo-white.png" alt="">
+                    </div>
+                    <div class=" language ">
+                        <div class="dropdown">
+                            <button
+                                class="language-selector btn dropdown-toggle d-flex justify-content-start align-items-center text-white"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                English
+                            </button>
+                            <div class="dropdown-menu language-dropdown-menu px-2">
+                                <div class="currency-title d-flex justify-content-between mb-2">
+                                    <div>Choose Language</div>
+                                    <div><a href="#"
+                                            class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Learn
+                                            More</a>
+                                    </div>
+                                </div>
+                                <form action="#">
+                                    <div class="language-options ">
+                                        <div class="form-check">
+                                            <input type="radio" name="language" id="english" class="form-check-input">
+                                            <label for="english">English EN</label>
+                                        </div>
+                                        <hr>
+                                        <div class="form-check">
+                                            <input type="radio" name="language" id="english" class="form-check-input">
+                                            <label for="english">English EN</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" name="language" id="english" class="form-check-input">
+                                            <label for="english">English EN</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" name="language" id="english" class="form-check-input">
+                                            <label for="english">English EN</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" name="language" id="english" class="form-check-input">
+                                            <label for="english">English EN</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" name="language" id="english" class="form-check-input">
+                                            <label for="english">English EN</label>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="change-currency mt-3">
+                                    <div class="currency-title d-flex justify-content-between align-items-center mb-1">
+                                        <div>Choose Currency</div>
+                                        <div>
+                                            <a href="#"
+                                                class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Learn
+                                                More</a>
+                                        </div>
+                                    </div>
+                                    <div class="currency-changing d-flex justify-content-between align-items-center">
+                                        <div>$ - USD - US Dollar</div>
+                                        <div>
+                                            <a href="#"
+                                                class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Change</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-last-section">
+                                    <div class="mt-2">
+                                        <img src="./images/us-flag.png" class="img-fluid us-flag-icon-last-section me-1"
+                                            alt="">You are shopping
+                                        on
+                                        Amazon.com
+                                    </div>
+                                    <div class="mt-1 d-flex justify-content-center">
+                                        <a href="#"
+                                            class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Change
+                                            Country/Region</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="currency-selector-link">
+                        <a href="">$ USD - US Dollar</a>
+                    </div>
+                    <div class="country-selector-link">
+                        <a href="">United States</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-second-section">
+                <div class="footer-second-container">
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                    <div class="second-footer-content">
+                        <h4>Amazon Music</h4>
+                        <div>Stream millions of songs</div>
+                    </div>
+                </div>
+                <div class="footer-second-extras">
+                    <div>Conditions of Use Privacy Notice Your Ads Privacy Choices</div>
+                    <div>&copy 1996-2024, Amazon.com, Inc. or its affiliates</div>
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- bootstrap scripts -->
+        <script src="./css/bootstrap/js/bootstrap.min.js"></script>
+        <script src="./css/bootstrap/js/bootstrap.bundle.js"></script>
+
+    </body>
+
+</html>

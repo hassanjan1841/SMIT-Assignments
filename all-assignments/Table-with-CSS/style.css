@@ -1,0 +1,42 @@
+table {
+  width: 100%;
+}
+td {
+  text-align: center;
+  width: 5%;
+  border: 3px solid black;
+  font-weight: bold;
+  padding: 2px 5px;
+}
+h1,
+h2 {
+  text-align: center;
+}
+#free-space {
+  background-color: #71bd79;
+}
+.first-row-column {
+  background-color: #cbc0f0;
+}
+.empty-cell {
+  background-color: #cb0fcd;
+}
+.namaz-break {
+  background-color: #ccccfe;
+}
+.web-app {
+  background-color: #4f8aaa;
+}
+.ai-chatbot {
+  background-color: #02bf3c;
+}
+.graphic-designing {
+  background-color: #fbe6b5;
+}
+.video-editing {
+  background-color: #8b29e3;
+  color: white;
+}
+.cco {
+  background-color: #fbec50;
+}

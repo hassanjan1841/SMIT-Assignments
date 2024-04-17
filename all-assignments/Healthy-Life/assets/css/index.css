@@ -1,0 +1,47 @@
+body {
+  background-color: #ede0a9;
+}
+.main-heading {
+  font-size: 50px;
+}
+.navigation td {
+  font-size: 25px;
+  width: 200px;
+}
+.navigation tr {
+  background-color: rgb(212, 53, 53);
+}
+a {
+  color: white;
+}
+p {
+  font-size: 20px;
+}
+.home-quote {
+  width: 65%;
+  margin: 40px auto;
+  text-align: justify;
+}
+figure,
+.cv-container,
+.form-container {
+  width: 1100px;
+  margin: 30px auto;
+}
+.cv-container a {
+  color: red;
+}
+.form-container td {
+  width: 600px;
+  font-size: 20px;
+}
+.go-to-top a {
+  color: red;
+}
+#submit-button {
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(39, 39, 39);
+}

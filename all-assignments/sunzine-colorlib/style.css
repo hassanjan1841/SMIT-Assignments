@@ -1,0 +1,108 @@
+@font-face {
+  font-family: aldrich;
+  src: url("./font/Aldrich/Aldrich-Regular.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: aldrich;
+}
+
+header {
+  padding: 15px 80px;
+}
+.nav-link {
+  color: rgb(161, 161, 161);
+  font-size: 0.9em;
+}
+.nav-item {
+  position: relative;
+  padding: 0 8px;
+}
+.hover-bottom-border {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  z-index: -1;
+  width: 0%;
+  height: 5px;
+  background-color: rgb(8, 202, 112);
+  visibility: hidden;
+  transition-property: visibility, width;
+  transition: 0.2s linear;
+}
+.nav-item:hover > .hover-bottom-border {
+  visibility: visible;
+  width: 100%;
+}
+.main-heading {
+  padding: 100px 10px;
+}
+.main-heading h2 {
+  text-align: center;
+  line-height: 1.6;
+  font-size: 2.3em;
+}
+.filter-links .nav-link {
+  font-size: 0.8em;
+}
+.dot {
+  text-align: center;
+}
+.img-1,
+.img-2,
+.img-3,
+.img-4 {
+  height: 330px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.inner-text {
+  /* visibility: hidden; */
+  transition: 0.3s linear;
+  transition-property: visibility, background-color;
+}
+.inner-text p {
+  transform: translate3d(0, -20px, 0);
+  opacity: 0;
+  transition: 0.3s ease;
+  transition-property: opacity, transform;
+}
+.img-1:hover,
+.img-2:hover,
+.img-3:hover,
+.img:hover > .inner-text {
+  background-color: rgba(17, 17, 17, 0.3);
+  cursor: pointer;
+  visibility: visible;
+}
+.img:hover .inner-text p {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.img-1 {
+  background-image: url("./images/image-1.webp");
+}
+.img-2 {
+  background-image: url("./images/img-2.webp");
+}
+.img-3 {
+  background-image: url("./images/img-3.webp");
+  height: 330px;
+}
+.img-4 {
+  background-image: url("./images/img-4.webp");
+}
+.loader {
+  font-size: 1.5em;
+}
+.footer-para {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rgb(180, 180, 180);
+  font-size: 1.2em;
+}
+@media screen and (max-width: 768px) {
+  header {
+    padding: 20px 25px;
+  }
+}

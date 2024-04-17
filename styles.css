@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+body {
+  background-color: #101418;
+}
+header {
+  background-color: #101418;
+  color: white;
+  border-bottom: 1px solid #293038;
+}
+.logo {
+  width: 30px;
+}
+.fa-bars {
+  color: white;
+}
+.profile-icon {
+  border-radius: 100vw;
+  background-color: #293038;
+  padding: 5px 10px;
+}
+.mobile-new-btn,
+.new-btn {
+  color: white;
+  background-color: #293038;
+}
+.new-btn {
+  padding: 5px 15px;
+}
+.mobile-new-btn {
+  padding: 10px 20px;
+}
+.mobile-new-btn:hover {
+  color: black;
+  background-color: white;
+}
+.mobile-new-btn + .profile-icon {
+  color: white;
+  padding: 15px 5px;
+  cursor: pointer;
+}
+.mobile-nav {
+  margin-top: 100px;
+}
+.mobile-nav-list .nav-link {
+  font-size: 1.6em;
+  color: white;
+}
+.offcanvas,
+.offcanvas-body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #101418;
+}
+.fa-close {
+  cursor: pointer;
+  color: white;
+}
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+  color: white;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.main-title h2 {
+  font-size: 2.3em;
+  font-weight: bolder;
+}
+.all-assignment-container h4 {
+  margin-bottom: 20px;
+  font-weight: bolder;
+}
+.assignment-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.assignment-box a {
+  flex-grow: 1;
+}
+.assignment-box a img {
+  width: 100%;
+}
+.github-code-btn {
+  color: white;
+  text-decoration: none;
+  background-color: #2b333d;
+  width: max-content;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition-property: background-color, color;
+  transition: 0.1s ease-in;
+}
+.github-code-btn:hover {
+  background-color: white;
+  color: black;
+}

@@ -1,0 +1,95 @@
+@import url("./sidebar.css");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+body {
+  background-color: #3c41c6;
+  background-image: url("../images/stars.svg");
+  overflow-x: hidden;
+}
+header {
+  width: 100vw;
+  display: flex;
+  justify-content: end;
+}
+nav {
+  width: calc(100vw - 4vw);
+  padding: 6px 70px;
+  background-color: white;
+  /* position: absolute; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+.back-to-home a {
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+}
+.copy-format-container {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.dropdown-icon {
+  width: 0px;
+  height: 0px;
+  margin: 0 5px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 14px solid #fff;
+}
+.sound-on a {
+  color: black;
+  font-weight: bolder;
+  text-decoration: none;
+}
+.colors-container {
+  width: 98%;
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: end;
+  align-items: start;
+  flex-wrap: wrap;
+}
+
+.copy-btn {
+  position: relative;
+  top: -45%;
+  left: 0%;
+  background-color: white;
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  opacity: 0.1;
+}
+.single-color {
+  width: 353.39px;
+  flex-grow: 1;
+  height: 215px;
+  padding: 0 10px;
+  color: white;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+.single-color:hover > .copy-btn {
+  visibility: visible;
+  opacity: 1;
+}
