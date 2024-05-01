@@ -209,6 +209,9 @@
   cursor: pointer;
 }
 @media screen and (max-width: 800px) {
+  h1 {
+    font-size: 1.4rem;
+  }
   .game-inner-container {
     flex-direction: column;
     align-items: center;
