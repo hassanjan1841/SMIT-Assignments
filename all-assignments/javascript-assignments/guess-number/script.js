@@ -34,10 +34,17 @@ function showLives(counter) {
   }
 }
 showLives(counter);
+let alphabets = "abcdefghijklmnopqrstuvwxyz";
+let capitalAlphabets = alphabets.toUpperCase();
 
 let winCount = 0;
 function guessNumber() {
-  if (userNumber.value === "") {
+  let userAlphas = userNumber.value.split("");
+  if (
+    userNumber.value === "" ||
+    alphabets.includes(userAlphas[0] && userAlphas[1]) ||
+    capitalAlphabets.includes(userAlphas[0] && userAlphas[1])
+  ) {
     modalContainer.style.display = "flex";
     modalContent.innerHTML = "Please enter a number!";
   }
