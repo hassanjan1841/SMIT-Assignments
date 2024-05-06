@@ -40,7 +40,7 @@ function start() {
     startButton.disabled = true;
     stopButton.disabled = false;
   } else {
-    showModal("Please Enter a Number!", "#FF0000");
+    showModal("Please Enter a Number!", "#e43a3a");
   }
 }
 
@@ -49,7 +49,7 @@ function stop() {
   if (userInput.value == countdown) {
     showModal("You Win!", "#4CAF50");
   } else {
-    showModal("You Lose!", "#FF0000");
+    showModal("You Lose!", "#e43a3a");
   }
   countdown = startRange;
   countdownDisplay.innerText = startRange;
