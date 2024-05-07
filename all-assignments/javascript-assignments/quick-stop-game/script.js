@@ -15,13 +15,57 @@ function setRange() {
   if (startRangeInput.value && endRangeInput.value) {
     startRange = parseInt(startRangeInput.value);
     endRange = parseInt(endRangeInput.value);
-    closeModal();
+    // closeModal();
     showNotification("Range has been set!", "#4CAF50");
+    playSuccessNotify();
   } else {
     showNotification("Sorry, Please Enter Something!", "#FF0000");
+    playFailedNotify();
   }
 }
 
+// Define sound effect audio elements
+const startSound = new Audio("./soundeffects/start.mp3");
+const stopSound = new Audio("./soundeffects/stop.mp3");
+const winSound = new Audio("./soundeffects/win.mp3");
+const loseSound = new Audio("./soundeffects/lose.mp3");
+const failedNotify = new Audio("./soundeffects/error_notification.mp3");
+const successNotify = new Audio("./soundeffects/success_notification.mp3");
+
+// Play sound effect functions
+function playFailedNotify() {
+  failedNotify.play();
+}
+function playSuccessNotify() {
+  successNotify.play();
+}
+function playStartSound() {
+  startSound.play();
+}
+
+function playStopSound() {
+  stopSound.play();
+}
+
+function playWinSound() {
+  winSound.play();
+}
+
+function playLoseSound() {
+  loseSound.play();
+}
+function resetAudio() {
+  startSound.pause();
+  startSound.currentTime = 0;
+  stopSound.pause();
+  stopSound.currentTime = 0;
+  winSound.pause();
+  winSound.currentTime = 0;
+  loseSound.pause();
+  loseSound.currentTime = 0;
+}
+
+// Adjusted start function with sound effects
 function start() {
   if (userInput.value && startRange < endRange) {
     countdown = startRange;
@@ -32,6 +76,7 @@ function start() {
         resultDisplay.innerText = "You are late!";
         startButton.disabled = false;
         stopButton.disabled = true;
+        playLoseSound(); // Play lose sound
       } else {
         countdown++;
         countdownDisplay.innerText = countdown;
@@ -39,22 +84,28 @@ function start() {
     }, 10);
     startButton.disabled = true;
     stopButton.disabled = false;
+    playStartSound(); // Play start sound
   } else {
-    showModal("Please Enter a Number!", "#e43a3a");
+    showModal("Please enter a number and set the range!", "#FF0000");
+    playLoseSound(); // Play lose sound
   }
 }
 
+// Adjusted stop function with sound effects
 function stop() {
   clearInterval(countdownInterval);
   if (userInput.value == countdown) {
     showModal("You Win!", "#4CAF50");
+    playWinSound(); // Play win sound
   } else {
-    showModal("You Lose!", "#e43a3a");
+    showModal("You Lose!", "#FF0000");
+    playLoseSound(); // Play lose sound
   }
   countdown = startRange;
   countdownDisplay.innerText = startRange;
   startButton.disabled = false;
   stopButton.disabled = true;
+  playStopSound(); // Play stop sound
 }
 
 function openModal() {
