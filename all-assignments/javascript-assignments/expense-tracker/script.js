@@ -1,4 +1,3 @@
-// script.j
 document.addEventListener("DOMContentLoaded", function () {
   const expenseForm = document.getElementById("expense-form");
   const expenseList = document.getElementById("expense-list");
@@ -56,10 +55,16 @@ document.addEventListener("DOMContentLoaded", function () {
       item.innerHTML = `
                 <span>${expense.amount}</span>
                 <span>${expense.category}</span>
-                <button onclick="editExpense(${expense.id})">Edit</button>
-                <button onclick="deleteExpense(${expense.id})">Delete</button>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
             `;
       expenseList.appendChild(item);
+
+      const deleteBtn = item.querySelector(".deleteBtn");
+      deleteBtn.addEventListener("click", () => deleteExpense(expense.id));
+
+      const editBtn = item.querySelector(".editBtn");
+      editBtn.addEventListener("click", () => editExpense(expense.id));
     });
 
     // Update statistics
@@ -85,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Function to edit an expense
-  window.editExpense = function (id) {
+  function editExpense(id) {
     const expense = expenses.find((expense) => expense.id === id);
     if (!expense) return;
 
@@ -97,5 +102,5 @@ document.addEventListener("DOMContentLoaded", function () {
       expense.category = newCategory;
       updateUI();
     }
-  };
+  }
 });
