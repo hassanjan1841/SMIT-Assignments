@@ -8,28 +8,45 @@
   </head>
   <body>
     <div class="container">
-      <div class="statistics">
-        <p>Present: <span id="present-count">0</span></p>
-        <p>Absent: <span id="absent-count">0</span></p>
-        <p>Leave: <span id="leave-count">0</span></p>
-      </div>
+      <div class="inner-container">
+        <h1 class="main-heading">Daily Attendance</h1>
+        <div class="statistics">
+          <h4>Summary</h4>
+          <div class="statistics-data">
+            <p>
+              Present<br />
+              <span id="present-count">0</span>
+            </p>
+            <p>
+              Absent:<br />
+              <span id="absent-count">0</span>
+            </p>
+            <p>
+              Leave:<br />
+              <span id="leave-count">0</span>
+            </p>
+          </div>
+        </div>
+        <div class="add-btn-container">
+          <button id="add-student-btn" class="modern-btn">Add Student</button>
+        </div>
 
-      <button id="add-student-btn" class="modern-btn">Add Student</button>
-      <table id="students-table" class="students-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Father's Name</th>
-            <th>Age</th>
-            <th>Roll No</th>
-            <th>Class</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Rows will be populated by JavaScript -->
-        </tbody>
-      </table>
+        <table id="students-table" class="students-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Father's Name</th>
+              <th>Age</th>
+              <th>Roll No</th>
+              <th>Class</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows will be populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div id="add-student-modal" class="modal">

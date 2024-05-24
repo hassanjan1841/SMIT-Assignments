@@ -275,9 +275,9 @@ document.addEventListener("DOMContentLoaded", () => {
       <td>${student.rollNo}</td>
       <td>${student.class}</td>
       <td>
-        <button class="present-btn">Present</button>
-        <button class="absent-btn">Absent</button>
-        <button class="leave-btn">Leave</button>
+        <button class="present-btn button">Present</button>
+        <button class="absent-btn button ">Absent</button>
+        <button class="leave-btn button">Leave</button>
       </td>
     `;
 
@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeModal = document.getElementsByClassName("close")[0];
 
   addStudentBtn.onclick = function () {
-    modal.style.display = "block";
+    modal.style.display = "flex";
   };
 
   closeModal.onclick = function () {
