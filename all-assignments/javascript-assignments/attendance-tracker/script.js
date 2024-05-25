@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
       animateButton(row.querySelector(".leave-btn"), "Leave");
     });
 
-    studentsTable.appendChild(row);
+    studentsTable.insertBefore(row, studentsTable.firstChild); // Insert at the beginning
   }
 
   users.forEach((user) => addStudentToTable(user));
