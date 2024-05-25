@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="counter-container">
+        <h1 id="counter" class="even">0</h1>
+        <p id="parity">Even</p>
+        <button id="increment">+</button>
+        <button id="reset">Reset</button>
+        <div class="history">
+            <h2>History</h2>
+            <button id="clear-history">Clear History</button>
+            <button id="history-toggle" onclick="toggleContent()">hide</button>
+            <ul id="history-list"></ul>
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

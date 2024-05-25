@@ -1,0 +1,84 @@
+
+.counter-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#counter {
+  font-size: 64px;
+  font-weight: bold;
+  color: #333;
+  color: #333;
+  transition: color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.even {
+  color: #34C759; /* green */
+}
+
+.odd {
+  color: #FF69B4; /* pink */
+}
+
+.history {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow:hidden;
+  transition: max-height .5s ease;
+}
+
+#history-list li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+#history-list li:last-child {
+  border-bottom: none;
+}
+
+#increment, #reset {
+  appearance: none;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#increment:hover, #reset:hover {
+  background-color: #3e8e41;
+}
+
+
+#clear-history,#history-toggle {
+  appearance: none;
+  background-color: #FF69B4;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#clear-history:hover {
+  background-color: #FF3737;
+}
