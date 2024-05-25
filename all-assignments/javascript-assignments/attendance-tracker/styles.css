@@ -14,12 +14,13 @@ html,
   background-color: #111317;
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   justify-content: space-between;
   color: white;
   width: 100%;
 }
 .inner-container {
+  min-width: 800px;
   max-width: 1200px;
 }
 .container {

@@ -176,6 +176,9 @@ const users = [
   },
 ];
 
+document.addEventListener("contextmenu", function (event) {
+  event.preventDefault();
+});
 let presentCount = 0;
 let absentCount = 0;
 let leaveCount = 0;
