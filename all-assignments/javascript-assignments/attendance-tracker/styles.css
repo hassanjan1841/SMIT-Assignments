@@ -14,6 +14,7 @@ html,
   background-color: #111317;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   justify-content: space-between;
   color: white;
@@ -21,7 +22,7 @@ html,
 }
 .inner-container {
   min-width: 800px;
-  max-width: 1200px;
+  max-width: 800px;
 }
 .container {
   padding: 20px;
@@ -257,4 +258,12 @@ input[type="number"]:focus {
   padding: 10px;
   border-radius: 5px;
   display: none;
+}
+
+@media screen and (max-width: 760px) {
+  body,
+  html,
+  .container {
+    align-items: flex-start;
+  }
 }
