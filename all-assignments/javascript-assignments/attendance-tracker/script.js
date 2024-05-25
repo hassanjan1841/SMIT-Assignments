@@ -198,9 +198,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showNotification(message) {
     notification.textContent = message;
-    notification.style.display = "block";
+
+    notification.style.visibility = "visible";
+    notification.style.right = "10px";
     setTimeout(() => {
-      notification.style.display = "none";
+      //notification.style.visibility = "hidden";
+      notification.style.right = "-100%";
     }, 1500);
   }
 
@@ -211,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
     button.appendChild(animation);
     setTimeout(() => {
       button.removeChild(animation);
-    }, 1000);
+    }, 3000);
   }
 
   function toggleStatus(row, type) {

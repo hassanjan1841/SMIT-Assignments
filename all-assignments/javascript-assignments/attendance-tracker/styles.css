@@ -218,12 +218,13 @@ input[type="number"]:focus {
 }
 
 .button.active {
-  background-color: #0056b3;
+  background-color: #303234;
 }
 
 .button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+  color: black;
 }
 
 .button:hover:not(:disabled) {
@@ -234,7 +235,9 @@ input[type="number"]:focus {
   top: -20px;
   right: 0;
   opacity: 1;
-  color: black;
+  color: white;
+  font-weight: bolder;
+  font-size: 1.2rem;
   animation: fadeOutUp 1s forwards;
 }
 
@@ -252,12 +255,15 @@ input[type="number"]:focus {
 .notification {
   position: fixed;
   top: 10px;
-  right: 10px;
+  right: -100%;
   background: #333;
   color: white;
   padding: 10px;
   border-radius: 5px;
-  display: none;
+  display: block;
+  visibility: hidden;
+
+  transition: 0.4s right ease-in-out;
 }
 
 @media screen and (max-width: 760px) {
