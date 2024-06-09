@@ -438,7 +438,7 @@ select {
   .todo-input-container {
     width: 100%;
     position: relative;
-    bottom: 0;
+    bottom: 10px;
     flex-direction: column;
     padding-inline: 10px;
   }
