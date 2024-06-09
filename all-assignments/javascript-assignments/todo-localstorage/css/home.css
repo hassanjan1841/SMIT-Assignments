@@ -295,6 +295,12 @@ main {
   bottom: 20px;
   width: 100%;
 }
+.todo-data-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
 input,
 select {
   padding: 10px 20px;
