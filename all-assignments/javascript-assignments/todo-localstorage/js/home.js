@@ -17,6 +17,9 @@ const categoryElement = document.getElementById("category");
 const categories = document.querySelectorAll(".category");
 const todoInputContainer = document.querySelector(".todo-input-container");
 const clearEverythingBtn = document.querySelector(".clear-everything");
+
+let taskElements = document.querySelectorAll(".task");
+
 let newEmail;
 
 let category = categoryElement.value;
@@ -137,15 +140,18 @@ function addTask(taskText, taskEmail, category = "Grocery", categoryColor) {
   tasks.push(task);
   localStorage.setItem("tasks", JSON.stringify(tasks));
   refreshTaskList();
+  taskElements = document.querySelectorAll(".task");
 }
 
 function loadTasks(userEmail = email, category = "all") {
   tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   refreshTaskList(userEmail, category);
+  taskElements = document.querySelectorAll(".task");
 }
 
 function refreshTaskList(userEmail = email, category = "all") {
   console.log(userEmail, category);
+  taskElements = document.querySelectorAll(".task");
   newEmail = userEmail;
   taskList.innerHTML = "";
   tasks.forEach((task, index) => {
@@ -173,11 +179,12 @@ function refreshTaskList(userEmail = email, category = "all") {
               </p>
               <p class="task-date">${task.date}</p>
               <span class="task-category" style="background-color:${task.categoryColor};">${task.category}</span>
+              <button class="more-btn" onclick="showTaskModal(this)">More</button>
             </div>
           </div>
           <div class="task-control-btns">
             <div class="task-btns">
-              <a href="#" class="edit-btn" id="${index}" onclick="editTask(this)">Edit</a>
+              <a href="#" class="edit-btn" id="${index}" onclick="openEditModal()" data-taskId="${index}">Edit</a>
               <a href="#" class="delete-btn" id="${index}" data-category="${category}" data-email="${task.email}" onclick="removeTask(this)">Delete</a>
             </div>
           </div>
@@ -228,7 +235,40 @@ function removeTask(ele) {
   tasks.splice(ele.id, 1);
   localStorage.setItem("tasks", JSON.stringify(tasks));
   refreshTaskList(ele.dataset.email, ele.dataset.category);
+  taskElements = document.querySelectorAll(".task");
 }
+// const editTaskModal = document.getElementById("edit-task-modal");
+// const editTaskInput = document.getElementById("edit-task-input");
+
+// function openEditModal() {
+//   editTaskModal.style.display = "flex";
+// }
+
+// function closeEditModal() {
+//   editTaskModal.style.display = "none";
+// }
+
+// function editTaskText() {
+//   const newTaskText = editTaskInput.value.trim();
+//   const taskId = modalEditBtn.dataset.taskId; // Get the task ID from the button's dataset
+
+//   // Find the task in the tasks array and update its text
+//   tasks[taskId].text = newTaskText;
+
+//   // Save the updated tasks array to localStorage
+//   localStorage.setItem("tasks", JSON.stringify(tasks));
+
+//   // Refresh the task list to reflect the changes
+//   refreshTaskList();
+
+//   // Close the edit task modal
+//   closeEditModal();
+// }
+
+// document
+//   .getElementById("edit-task-btn")
+//   .addEventListener("click", editTaskText);
+
 function clearEverything() {
   localStorage.clear();
   closeModal();
@@ -244,3 +284,71 @@ function openModal() {
 function closeModal() {
   document.getElementById("modal-container").style.display = "none";
 }
+
+//const tasks = document.querySelectorAll(".task");
+
+const taskModal = document.getElementById("task-modal");
+
+const modalTaskText = document.getElementById("modal-task-text");
+const modalTaskDate = document.getElementById("modal-task-date");
+const modalTaskCategory = document.getElementById("modal-task-category");
+const modalEditBtn = document.getElementById("modal-edit-btn");
+const modalDeleteBtn = document.getElementById("modal-delete-btn");
+
+// taskElements.forEach((task, index) => {
+// const editBtn = task.querySelector(".edit-btn");
+
+// editBtn.addEventListener("click", (event) => {
+//   event.stopPropagation(); // Prevent event bubbling to avoid task click
+//   openEditModal(); // Open the edit modal directly
+//   modalEditBtn.dataset.taskId = index; // Set the task ID on the button
+//   editTaskInput.value = tasks[index].text; // Set the current task text in the input
+// });
+function showTaskModal(ele) {
+  const task = ele.closest(".task");
+  const moreBtn = task.querySelector(".more-btn");
+  console.log(moreBtn);
+
+  const taskText = task.querySelector(".task-text").textContent;
+  const taskDate = task.querySelector(".task-date").textContent;
+  const taskCategory = task.querySelector(".task-category").textContent;
+  console.log(taskText, taskDate, taskCategory);
+
+  modalTaskText.textContent = taskText;
+  modalTaskDate.textContent = taskDate;
+  modalTaskCategory.textContent = taskCategory;
+
+  openTaskModal();
+}
+// });
+
+function openTaskModal() {
+  taskModal.style.display = "flex";
+  // modalEditBtn.dataset.taskId = taskId; // Set the task ID on the button
+}
+
+function closeTaskModal() {
+  taskModal.style.display = "none";
+}
+
+function checkScreenWidth() {
+  const tasks = document.querySelectorAll(".task");
+
+  if (window.innerWidth <= 520) {
+    tasks.forEach((task) => {
+      const taskText = task.querySelector(".task-text");
+      taskText.innerHTML =
+        taskText.textContent.length > 50
+          ? taskText.textContent.slice(0, 50) + "..."
+          : taskText.textContent;
+    });
+  } else {
+    tasks.forEach((task) => {
+      const taskText = task.querySelector(".task-text");
+      taskText.innerHTML = taskText.textContent;
+    });
+  }
+}
+
+window.addEventListener("resize", checkScreenWidth);
+window.addEventListener("load", checkScreenWidth);

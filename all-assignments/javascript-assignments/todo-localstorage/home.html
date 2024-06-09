@@ -164,6 +164,48 @@
   </div>
 </div>
 
+
+
+<!-- Task Modal container -->
+<div id="task-modal" class="modal-container">
+  <div class="modal-content">
+    <h3 id="modal-task-title" class="modal-header">Task Details</h3>
+    <div class="modal-info">
+      <div>
+        <span class="label">Text:</span>
+        <span id="modal-task-text" class="modal-text"></span>
+      </div>
+      <div>
+        <span class="label">Date:</span>
+        <span id="modal-task-date" class="modal-text"></span>
+      </div>
+      <div>
+        <span class="label">Category:</span>
+        <span id="modal-task-category" class="modal-text"></span>
+      </div>
+    </div>
+    <div class="modal-buttons">
+      <!-- <button id="modal-edit-btn" class="edit-btn">Edit</button>
+      <button id="modal-delete-btn" class="delete-btn">Delete</button> -->
+      <button class="close-btn" onclick="closeTaskModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Edit Task Modal container -->
+<div id="edit-task-modal" class="modal-container">
+  <div class="modal-content">
+    <h3 class="modal-header">Edit Task</h3>
+    <input type="text" id="edit-task-input" class="modal-input" placeholder="Enter new task text">
+    <div class="modal-buttons">
+      <button id="edit-task-btn" class="edit-btn">Save</button>
+      <button class="close-btn" onclick="closeEditModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+
     <script src="js/home.js"></script>
   </body>
 </html>
