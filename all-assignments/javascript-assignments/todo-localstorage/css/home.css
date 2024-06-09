@@ -96,7 +96,7 @@ main {
 }
 .tasks-list-container {
   overflow-y: scroll;
-  max-height: 600px;
+  max-height: 450px;
   padding-right: 15px;
 }
 .tasks-container {
@@ -542,9 +542,10 @@ f .modal-info div {
   .todo-input-container {
     width: 100%;
     position: fixed;
-    bottom: 10px;
+    bottom: 0px;
     flex-direction: column;
-    padding-inline: 10px;
+    padding: 10px;
+    background-color: white;
   }
   .todo-input-container input,
   .todo-input-container select {
