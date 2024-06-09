@@ -160,10 +160,12 @@ main {
   from {
     transform: translateX(-100%);
     opacity: 0;
+    display: none;
   }
   to {
     transform: translateX(0);
     opacity: 1;
+    display: inline-block;
   }
 }
 
@@ -171,10 +173,12 @@ main {
   from {
     transform: translateX(0);
     opacity: 1;
+    display: inline-block;
   }
   to {
     transform: translateX(-100%);
     opacity: 0;
+    display: none;
   }
 }
 
@@ -385,4 +389,66 @@ select {
   background-color: #df2020; /* Red */
   color: white;
   font-weight: bold;
+}
+
+@media screen and (max-width: 520px) {
+  .main-inner {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-container {
+    width: 100%;
+  }
+  .right-container {
+    width: 100%;
+  }
+  .tasks-list-container {
+    width: 100%;
+    padding: 0;
+  }
+  .tasks-container {
+    width: 100%;
+    padding: 0;
+  }
+  .task-btns {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .task-btns a {
+    width: 80px;
+    text-align: center;
+  }
+  .task-category,
+  .task-date {
+    font-size: 0.8rem;
+  }
+  .task-text {
+    font-size: 1.1rem;
+  }
+
+  .todo-input-container {
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    flex-direction: column;
+    padding-inline: 10px;
+  }
+  .todo-input-container input,
+  .todo-input-container select {
+    width: 100%;
+    text-align: center;
+  }
+  .todo-data-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .todo-input-container #add-task-button {
+    width: 100%;
+    text-align: center;
+  }
+  .logout-btn .clear-everything {
+    width: 100%;
+  }
 }

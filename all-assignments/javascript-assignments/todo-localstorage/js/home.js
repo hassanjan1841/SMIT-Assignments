@@ -16,6 +16,7 @@ const newTaskInput = document.getElementById("new-task");
 const categoryElement = document.getElementById("category");
 const categories = document.querySelectorAll(".category");
 const todoInputContainer = document.querySelector(".todo-input-container");
+const clearEverythingBtn = document.querySelector(".clear-everything");
 let newEmail;
 
 let category = categoryElement.value;
@@ -87,6 +88,8 @@ loadTasks();
 if (email === "admin@gmail.com") {
   loadEmailList();
   todoInputContainer.style.display = "none";
+} else {
+  clearEverythingBtn.style.display = "none";
 }
 console.log(tasks);
 
