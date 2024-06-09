@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>To-Do App</title>
+    <link href="css/home.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/e42725d427.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-inner">
+          <div class="logo"><i class="fa-solid fa-list-check"></i> todo</div>
+          <div class="logout-btn">
+
+    <span class="clear-everything" onclick="openModal()">&times;</span>
+            <a href="#" onclick="logout()">Logout</a>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="main-inner">
+          <div class="left-container">
+            <div class="users-container">
+              <div class="users-title-container">
+                <h1>Users</h1>
+                <p>List of all Emails of Users</p>
+              </div>
+              <div class="users-list-container">
+                <div class="users-list">
+                  <div class="user">
+                    <div class="user-info">
+                      <h3>First Last</h3>
+                      <h4>email@email.com</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right-container">
+            <div class="tasks-container">
+              <div class="task-title">
+                <h1>Tasks</h1>
+                <p>.</p>
+              </div>
+              <div class="task-categories" id="task-categories">
+                <div class="categories-list">
+                  <div
+                    class="category-all"
+                    id="toggle-categories-btn"
+                    style="background-color: #192830"
+                  >
+                    ></span>
+                  </div>
+                  <div
+                    class="category"
+                    id="all"
+                    style="background-color: #202c2c"
+                  >
+                    All
+                  </div>
+                  <div
+                    class="category"
+                    id="mind"
+                    style="background-color: #008b8b"
+                  >
+                    Mind
+                  </div>
+                  <div
+                    class="category"
+                    id="deepwork"
+                    style="background-color: #b8860b"
+                  >
+                    Deep Work
+                  </div>
+                  <div
+                    class="category"
+                    id="grocery"
+                    style="background-color: #556b2f"
+                  >
+                    Grocery
+                  </div>
+                  <div
+                    class="category"
+                    id="chores"
+                    style="background-color: #483d8b"
+                  >
+                    Chores
+                  </div>
+                  <div
+                    class="category"
+                    id="nextweek"
+                    style="background-color: #b22222"
+                  >
+                    Next Week
+                  </div>
+                </div>
+              </div>
+              <div class="tasks-list-container">
+                <div class="tasks-list">
+                  <div class="task">
+                    <div class="task-left">
+                      <div class="task-logo">
+                        <i class="fa-regular fa-hourglass-half"></i>
+                      </div>
+                      <div class="task-info">
+                        <p class="task-text">
+                          tsk detail information exas dsfdsafs ddsfds sdafdsfsda
+                          dsafds dsafdsafds afsda fsdf sad
+                        </p>
+                        <p class="task-date">Jul 23, 2024</p>
+                        <span class="task-category">Grocery</span>
+                      </div>
+                    </div>
+                    <div class="task-control-btns">
+                      <div class="task-btns">
+                        <a href="#" class="edit-btn">Edit</a>
+                        <a href="#" class="delete-btn">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="todo-input-container">
+      <input type="text" id="new-task" placeholder="Add a new task" />
+      <!-- <input type="text" id="new-subject" placeholder="Add a Subject" /> -->
+      <select name="category" id="category">
+        <option value="grocery">Grocery</option>
+        <option value="deepwork">Deep Work</option>
+        <option value="chores">Chores</option>
+        <option value="mind">Mind</option>
+        <option value="nextweek">Next Week</option>
+      </select>
+      <a href="" id="add-task-button">Add</a>
+    </div>
+
+
+
+<!-- Modal container -->
+<div id="modal-container" class="modal-container">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <p class="modal-text"    >Are you sure you want to <span style="color: red;">delete</span> everything in localStorage and logout?</p>
+    <!-- Buttons -->
+    <div class="modal-buttons">
+      <button class="yes" onclick="clearEverything()">Yes</button>
+      <button class="no" onclick="closeModal()">No</button>
+    </div>
+  </div>
+</div>
+
+    <script src="js/home.js"></script>
+  </body>
+</html>
