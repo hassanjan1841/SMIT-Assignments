@@ -122,7 +122,7 @@ newTaskInput.addEventListener("keypress", function (e) {
 });
 function logout() {
   // localStorage.removeItem("email");
-  location.href = "login.html";
+  location.href = "index.html";
 }
 
 function addTask(taskText, taskEmail, category = "Grocery", categoryColor) {
@@ -232,7 +232,7 @@ function removeTask(ele) {
 function clearEverything() {
   localStorage.clear();
   closeModal();
-  location.href = "login.html";
+  location.href = "index.html";
 }
 
 // Function to open the modal

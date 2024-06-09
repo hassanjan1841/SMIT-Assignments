@@ -402,6 +402,15 @@ select {
   .right-container {
     width: 100%;
   }
+  .categories-list {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .logout-btn {
+    display: flex;
+    gap: 10px;
+  }
   .tasks-list-container {
     width: 100%;
     padding: 0;
