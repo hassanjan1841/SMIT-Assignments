@@ -392,8 +392,7 @@ select {
   margin-bottom: 15px;
   width: 100%;
 }
-f
-.modal-info div {
+f .modal-info div {
   margin: 5px 0;
   text-align: left;
 }
@@ -542,7 +541,7 @@ f
 
   .todo-input-container {
     width: 100%;
-    position: relative;
+    position: fixed;
     bottom: 10px;
     flex-direction: column;
     padding-inline: 10px;
