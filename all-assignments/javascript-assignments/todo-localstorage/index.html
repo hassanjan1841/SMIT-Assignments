@@ -1,35 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modern To-Do App</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css" />
   </head>
   <body>
-    <div class="app-container">
-      <header>
-        <div class="header-content">
-          <h1>My To-Do List</h1>
-          <div class="user-info">
-            <span id="user-email">user@example.com</span>
-            <button id="logout-button">Logout</button>
-          </div>
+    <div class="login-container">
+      <form class="login-form" id="login-form" action="index.html" method="get">
+        <h2>Login</h2>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
         </div>
-        <div id="email-list" class="email-list-container">
-          <!-- Email list will be dynamically added here -->
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your Full Name"
+            required
+          />
         </div>
-        <div class="todo-input-container">
-          <input type="text" id="new-task" placeholder="Add a new task" />
-          <button id="add-task-button">Add</button>
-        </div>
-      </header>
-      <main>
-        <ul id="task-list">
-          <!-- Tasks will be dynamically added here -->
-        </ul>
-      </main>
+        <button type="submit">Login</button>
+      </form>
     </div>
-    <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>
