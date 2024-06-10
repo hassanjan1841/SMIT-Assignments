@@ -291,8 +291,9 @@ main {
   align-items: center;
   gap: 20px;
   margin-top: 20px;
-  position: absolute;
-  bottom: 20px;
+  padding: 10px;
+  position: fixed;
+  bottom: 0px;
   width: 100%;
 }
 .todo-data-container {
@@ -392,7 +393,7 @@ select {
   margin-bottom: 15px;
   width: 100%;
 }
-f .modal-info div {
+.modal-info div {
   margin: 5px 0;
   text-align: left;
 }
@@ -494,8 +495,13 @@ f .modal-info div {
   background-color: #df2020; /* Red */
   color: white;
 }
-
+.more-btn {
+  display: none;
+}
 @media screen and (max-width: 520px) {
+  .more-btn {
+    display: inline-block;
+  }
   .main-inner {
     flex-direction: column;
     align-items: center;
@@ -541,10 +547,7 @@ f .modal-info div {
 
   .todo-input-container {
     width: 100%;
-    position: fixed;
-    bottom: 0px;
     flex-direction: column;
-    padding: 10px;
     background-color: white;
   }
   .todo-input-container input,

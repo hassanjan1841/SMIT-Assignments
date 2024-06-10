@@ -173,7 +173,7 @@ function refreshTaskList(userEmail = email, category = "all") {
               <i class="fa-regular fa-hourglass-half"></i>
             </div>
             <div class="task-info">
-              <p class="task-text">
+              <p class="task-text" data-taskText="${task.text}">
               ${taskTextShortened}
               ${showMoreButton}
               </p>
@@ -306,10 +306,10 @@ const modalDeleteBtn = document.getElementById("modal-delete-btn");
 // });
 function showTaskModal(ele) {
   const task = ele.closest(".task");
-  const moreBtn = task.querySelector(".more-btn");
-  console.log(moreBtn);
+  // const moreBtn = task.querySelector(".more-btn");
+  // console.log(moreBtn);
 
-  const taskText = task.querySelector(".task-text").textContent;
+  const taskText = task.querySelector(".task-text").dataset.tasktext;
   const taskDate = task.querySelector(".task-date").textContent;
   const taskCategory = task.querySelector(".task-category").textContent;
   console.log(taskText, taskDate, taskCategory);
@@ -339,15 +339,16 @@ function checkScreenWidth() {
       const taskText = task.querySelector(".task-text");
       taskText.innerHTML =
         taskText.textContent.length > 50
-          ? taskText.textContent.slice(0, 50) + "..."
+          ? taskText.textContent.slice(0, 50) + `...`
           : taskText.textContent;
     });
-  } else {
-    tasks.forEach((task) => {
-      const taskText = task.querySelector(".task-text");
-      taskText.innerHTML = taskText.textContent;
-    });
-  }
+  } //else {
+  //tasks.forEach((task) => {
+  //const taskText = task.querySelector(".task-text");
+  //taskText.innerHTML = taskText.textContent;
+  //});
+  //}
+  //
 }
 
 window.addEventListener("resize", checkScreenWidth);
