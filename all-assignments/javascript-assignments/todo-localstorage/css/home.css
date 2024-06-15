@@ -96,7 +96,8 @@ main {
 }
 .tasks-list-container {
   overflow-y: scroll;
-  max-height: 400px;
+  /* max-height: 400px; */
+  height: calc(100vh - 300px);
   padding-right: 15px;
 }
 .tasks-container {
