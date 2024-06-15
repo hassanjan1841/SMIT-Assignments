@@ -11,7 +11,10 @@
 
     <title>E-Commerce Try</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-
+    <script
+      src="https://kit.fontawesome.com/e42725d427.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   </head>
   <body>
@@ -95,7 +98,16 @@
           </div>
         </header>
         <div class="gap-1 px-6 flex flex-1 justify-center py-5">
-          <div class="layout-content-container flex flex-col w-80">
+          <span
+            class="fixed top-[120px] left-3 z-20 text-[1.6rem] hover:cursor-pointer sm:hidden"
+            id="filter-btn"
+          >
+            <i class="fa-solid fa-filter"></i>
+          </span>
+          <div
+            class="layout-content-container max-sm:fixed left-0 right-0 flex-col w-full sm:w-80 sm:flex hidden z-10 max-sm:bg-white"
+            id="filter-container"
+          >
             <h3
               class="text-[#0e151b] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
             >
@@ -188,7 +200,7 @@
             </h3>
             <div class="@container">
               <div
-                class="relative flex w-full flex-col items-start justify-between gap-3 p-4 @[480px]:flex-row"
+                class="relative flex w-full flex-col items-start justify-between gap-3 p-4"
               >
                 <p
                   class="text-[#0e151b] text-base font-medium leading-normal w-full shrink-[3]"

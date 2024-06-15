@@ -214,6 +214,20 @@ let minimumPriceRange = document.getElementById("minimum-price-range");
 let maximumPriceRange = document.getElementById("maximum-price-range");
 let priceSubmitBtn = document.getElementById("price-submit-btn");
 let searchField = document.getElementById("search");
+let filterBtn = document.getElementById("filter-btn");
+let filterContainer = document.getElementById("filter-container");
+
+let isHidden = false;
+filterBtn.addEventListener("click", () => {
+  isHidden = !isHidden;
+  if (isHidden) {
+    filterContainer.classList.remove("hidden");
+    filterContainer.classList.add("flex");
+  } else {
+    filterContainer.classList.remove("flex");
+    filterContainer.classList.add("hidden");
+  }
+});
 
 const renderProducts = (products) => {
   productListContainer.innerHTML = "";
