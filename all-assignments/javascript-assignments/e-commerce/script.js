@@ -245,7 +245,7 @@ const renderProducts = (products) => {
 };
 
 console.log(searchField);
-searchField.addEventListener("change", (event) => {
+searchField.addEventListener("keyup", (event) => {
   console.log("searching");
   let searchString = event.target.value;
   console.log(searchString);
