@@ -96,24 +96,12 @@ main {
 }
 .tasks-list-container {
   overflow-y: scroll;
-  /* max-height: 400px; */
   height: calc(100vh - 300px);
   padding-right: 15px;
 }
 .tasks-container {
   padding-inline: 15px;
 }
-/* .task-categories {
-  overflow: hidden;
-  width: 0;
-  transition: width 0.5s ease;
-  white-space: nowrap;
-}
-
-.task-categories.show {
-  width: auto;
-} */
-
 .categories-list {
   display: flex;
   justify-content: space-between;
