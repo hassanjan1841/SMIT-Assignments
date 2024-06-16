@@ -216,6 +216,20 @@ let priceSubmitBtn = document.getElementById("price-submit-btn");
 let searchField = document.getElementById("search");
 let filterBtn = document.getElementById("filter-btn");
 let filterContainer = document.getElementById("filter-container");
+let searchModalBtn = document.getElementById("search-modal-btn");
+let searchModal = document.getElementById("search-modal");
+
+let isSearchModalHidden = true;
+searchModalBtn.addEventListener("click", () => {
+  isSearchModalHidden = !isSearchModalHidden;
+  if (isSearchModalHidden) {
+    searchModal.classList.remove("hidden");
+    searchModal.classList.add("flex");
+  } else {
+    searchModal.classList.remove("flex");
+    searchModal.classList.add("hidden");
+  }
+});
 
 let isHidden = false;
 filterBtn.addEventListener("click", () => {
