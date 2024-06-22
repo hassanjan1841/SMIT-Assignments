@@ -6,6 +6,9 @@ document.addEventListener("keyup", (e) => {
     }
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  getWeatherData();
+});
 
 const loader = document.querySelector(".loader-container");
 const weatherDetailsContainer = document.querySelector(".weather-details");
