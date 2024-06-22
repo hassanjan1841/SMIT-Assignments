@@ -10,6 +10,33 @@ document.addEventListener("DOMContentLoaded", () => {
   getWeatherData();
 });
 
+function getCurrentLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const geocoder = new google.maps.Geocoder();
+      const latlng = new google.maps.LatLng(latitude, longitude);
+      geocoder.geocode({ latLng: latlng }, (results, status) => {
+        if (status === google.maps.GeocoderStatus.OK) {
+          if (results[0]) {
+            const city = results[0].address_components[2].long_name;
+            getWeatherData(city);
+          } else {
+            console.error("No results found");
+          }
+        } else {
+          console.error("Geocoder failed due to: " + status);
+        }
+      });
+    });
+  } else {
+    console.error("Geolocation is not supported by this browser");
+  }
+}
+
+getCurrentLocation();
+
 const loader = document.querySelector(".loader-container");
 const weatherDetailsContainer = document.querySelector(".weather-details");
 
