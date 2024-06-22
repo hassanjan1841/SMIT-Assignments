@@ -10,7 +10,7 @@ document.addEventListener("keyup", (e) => {
 const loader = document.querySelector(".loader-container");
 const weatherDetailsContainer = document.querySelector(".weather-details");
 
-function getWeatherData(city) {
+function getWeatherData(city = "karachi") {
   const apiKey = "666d863e20748cfbbb83509bbae9f30f"; // Replace with your actual API key
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
