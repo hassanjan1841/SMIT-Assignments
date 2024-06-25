@@ -7,7 +7,8 @@ document.addEventListener("keyup", (e) => {
   }
 });
 document.addEventListener("DOMContentLoaded", () => {
-  getWeatherData();
+  // getWeatherData();
+  getCurrentLocation();
 });
 
 function getCurrentLocation() {
@@ -21,7 +22,8 @@ function getCurrentLocation() {
         if (status === google.maps.GeocoderStatus.OK) {
           if (results[0]) {
             const city = results[0].address_components[2].long_name;
-            getWeatherData(city);
+            console.log("city", city);
+            // getWeatherData(city);
           } else {
             console.error("No results found");
           }
@@ -35,12 +37,10 @@ function getCurrentLocation() {
   }
 }
 
-getCurrentLocation();
-
 const loader = document.querySelector(".loader-container");
 const weatherDetailsContainer = document.querySelector(".weather-details");
 
-function getWeatherData(city = "karachi") {
+function getWeatherData(city) {
   const apiKey = "666d863e20748cfbbb83509bbae9f30f"; // Replace with your actual API key
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
@@ -133,4 +133,54 @@ function updateForecast(data) {
         `;
     forecastContainer.appendChild(forecastCard);
   });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        getCityName(lat, lon);
+      },
+      (error) => {
+        console.error("Error fetching location:", error);
+        alert(
+          "Failed to get your location. Please search for a city manually."
+        );
+      }
+    );
+  } else {
+    alert(
+      "Geolocation is not supported by this browser. Please search for a city manually."
+    );
+  }
+});
+
+function getCityName(lat, lon) {
+  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
+
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const city =
+        data.address.city ||
+        data.address.town ||
+        data.address.village ||
+        "Unknown city";
+      // city = ;
+      // alert(`Current city is: ${city.split(" ").slice(0, 1).join(" ")}`);
+      // console.log(`Current city is: ${city}`);
+      // You can update the city input field or any other element with the city name
+      getWeatherData(city.split(" ").slice(0, 1).join(" "));
+    })
+    .catch((error) => {
+      console.error("Error fetching city name:", error);
+      alert("Failed to get your city name. Please search for a city manually.");
+    });
 }
