@@ -82,13 +82,24 @@
         <nav
           class="md:ml-auto flex flex-wrap items-center text-base justify-center"
         >
-          <!-- <a class="mr-5 hover:text-gray-900" href="./add_products/index.html">
-            Add Products
-          </a> -->
+          <a
+            id="my-products-btn"
+            href="/products/index.html"
+            class="mr-5 hover:text-gray-900 border-b-2 border-gray-400"
+            >My Products</a
+          >
+          <!-- <a class="mr-5 hover:text-gray-900"></a> -->
         </nav>
         <div class="flex justify-between gap-2">
           <a
-            href="./auth/login/index.html"
+            href="/cart/index.html"
+            class="px-3 py-1 inline-flex items-center bg-gray-100 hover:bg-gray-600 hover:text-white rounded-md hover:cursor-pointer"
+            id="cart-icon"
+          >
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+          <a
+            href="/auth/login/index.html"
             id="login-btn"
             class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-600 hover:text-white rounded text-base mt-4 md:mt-0 shadow-md shadow-gray-300"
           >
@@ -107,7 +118,7 @@
           </a>
 
           <a
-            href="./auth/login/index.html"
+            href="/auth/login/index.html"
             id="signup-btn"
             class="inline-flex items-center bg-gray-600 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 hover:text-black rounded text-base text-white mt-4 md:mt-0 shadow-md shadow-gray-300"
           >

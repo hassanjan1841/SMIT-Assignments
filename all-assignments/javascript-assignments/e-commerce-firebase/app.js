@@ -60,7 +60,7 @@ export const showProducts = (products) => {
     const product = doc.data();
     productsContainer.innerHTML += `
     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-      <a href="/products/single_product/index.html?userId=${doc.id}" class="block relative h-48 rounded overflow-hidden">
+      <a href="/products/single_product/index.html?productId=${doc.id}" class="block relative h-48 rounded overflow-hidden">
         <img
           alt="ecommerce"
           class="object-cover object-center w-full h-full block"
@@ -75,14 +75,6 @@ export const showProducts = (products) => {
           ${product.productName}
         </h2>
         <p class="mt-1">${product.productPrice}</p>
-      </div>
-      <div class="flex justify-between my-3">
-        <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-          Add to Cart
-        </button>
-        <button class="bg-white hover:bg-gray-600 hover:text-white text-black font-bold py-2 px-4 rounded">
-          Buy Now 
-        </button>
       </div>
     </div>
     `;

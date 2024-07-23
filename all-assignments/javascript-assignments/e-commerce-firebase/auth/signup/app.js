@@ -13,13 +13,11 @@ const confirmPassword = document.getElementById("confirm-password");
 
 const loaderContainer = document.querySelector("#submit_btn .loader-container");
 const submitBtnText = document.querySelector("#submit_btn span");
-const submitBtn = document.getElementById("submit_btn");
+// const submitBtn = document.getElementById("submit_btn");
 
-[confirmPassword, password].forEach((element) => {
-  element.addEventListener("keyup", () => {
-    console.log("confirmPassword.value", confirmPassword.value);
-    passwordValidation(password.value, confirmPassword.value);
-  });
+password.addEventListener("keyup", () => {
+  console.log("confirmPassword.value", password.value);
+  passwordValidation(password.value, password.value);
 });
 
 signupForm.addEventListener("submit", (e) => {

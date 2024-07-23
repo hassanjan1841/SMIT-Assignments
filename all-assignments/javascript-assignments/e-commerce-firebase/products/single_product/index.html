@@ -52,14 +52,14 @@
         </nav>
         <div class="flex justify-between gap-2">
           <a
-            href="./cart/index.html"
+            href="/cart/index.html"
             class="px-3 py-1 inline-flex items-center bg-gray-100 hover:bg-gray-600 hover:text-white rounded-md hover:cursor-pointer"
             id="cart-icon"
           >
             <i class="fa-solid fa-cart-shopping"></i>
           </a>
           <a
-            href="./auth/login/index.html"
+            href="/auth/login/index.html"
             id="login-btn"
             class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-600 hover:text-white rounded text-base mt-4 md:mt-0 shadow-md shadow-gray-300"
           >
@@ -78,7 +78,7 @@
           </a>
 
           <a
-            href="./auth/login/index.html"
+            href="/auth/singup/index.html"
             id="signup-btn"
             class="inline-flex items-center bg-gray-600 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 hover:text-black rounded text-base text-white mt-4 md:mt-0 shadow-md shadow-gray-300"
           >
@@ -451,6 +451,7 @@
                   </button>
                 </div>
                 <button
+                  id="add-to-cart-btn"
                   class="group py-4 px-5 rounded-full bg-indigo-50 text-indigo-600 font-semibold text-lg w-full flex items-center justify-center gap-2 transition-all duration-500 hover:bg-indigo-100"
                 >
                   <svg
@@ -503,6 +504,28 @@
         </div>
       </div>
     </section>
+
+    <div id="loginErrorModal" class="hidden">
+      <div>
+        <div
+          class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+        >
+          <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-xl font-semibold text-gray-900">
+                Please Login First
+              </h2>
+              <button
+                id="closeLoginErrorModal"
+                class="text-gray-500 hover:text-gray-900"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="./app.js"></script>
   </body>
 </html>
