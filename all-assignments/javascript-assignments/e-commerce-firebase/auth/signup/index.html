@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup | E-Commerce Firebase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* HTML: <div class="loader"></div> */
+      .loader-container {
+        display: none;
+      }
+      /* HTML: <div class="loader"></div> */
+      .loader {
+        width: 30px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 8px solid #ffffff;
+        animation: l20-1 0.8s infinite linear alternate,
+          l20-2 1.6s infinite linear;
+      }
+      @keyframes l20-1 {
+        0% {
+          clip-path: polygon(
+            50% 50%,
+            0 0,
+            50% 0%,
+            50% 0%,
+            50% 0%,
+            50% 0%,
+            50% 0%
+          );
+        }
+        12.5% {
+          clip-path: polygon(
+            50% 50%,
+            0 0,
+            50% 0%,
+            100% 0%,
+            100% 0%,
+            100% 0%,
+            100% 0%
+          );
+        }
+        25% {
+          clip-path: polygon(
+            50% 50%,
+            0 0,
+            50% 0%,
+            100% 0%,
+            100% 100%,
+            100% 100%,
+            100% 100%
+          );
+        }
+        50% {
+          clip-path: polygon(
+            50% 50%,
+            0 0,
+            50% 0%,
+            100% 0%,
+            100% 100%,
+            50% 100%,
+            0% 100%
+          );
+        }
+        62.5% {
+          clip-path: polygon(
+            50% 50%,
+            100% 0,
+            100% 0%,
+            100% 0%,
+            100% 100%,
+            50% 100%,
+            0% 100%
+          );
+        }
+        75% {
+          clip-path: polygon(
+            50% 50%,
+            100% 100%,
+            100% 100%,
+            100% 100%,
+            100% 100%,
+            50% 100%,
+            0% 100%
+          );
+        }
+        100% {
+          clip-path: polygon(
+            50% 50%,
+            50% 100%,
+            50% 100%,
+            50% 100%,
+            50% 100%,
+            50% 100%,
+            0% 100%
+          );
+        }
+      }
+      @keyframes l20-2 {
+        0% {
+          transform: scaleY(1) rotate(0deg);
+        }
+        49.99% {
+          transform: scaleY(1) rotate(135deg);
+        }
+        50% {
+          transform: scaleY(-1) rotate(0deg);
+        }
+        100% {
+          transform: scaleY(-1) rotate(-135deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="text-gray-600 body-font min-h-[100vh] flex items-center">
+      <div
+        class="container mx-auto px-8 flex justify-center flex-wrap items-center"
+      >
+        <form
+          class="bg-gray-100 rounded-lg p-8 flex flex-col max-w-[450px] mt-10 md:mt-0"
+          id="signup-form"
+        >
+          <h2 class="text-gray-900 text-lg font-medium title-font mb-5">
+            Signup Form
+          </h2>
+
+          <div class="relative mb-4 flex justify-between gap-5">
+            <div>
+              <label for="first-name" class="leading-7 text-sm text-gray-600"
+                >First Name</label
+              >
+              <input
+                required
+                type="text"
+                id="first-name"
+                name="first-name"
+                class="w-full bg-white rounded border border-gray-300 focus:border-gray-500 focus:ring-2 focus:ring-gray-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+            </div>
+            <div>
+              <label for="last-name" class="leading-7 text-sm text-gray-600"
+                >Last Name</label
+              >
+              <input
+                required
+                type="text"
+                id="last-name"
+                name="last-name"
+                class="w-full bg-white rounded border border-gray-300 focus:border-gray-500 focus:ring-2 focus:ring-gray-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+            </div>
+          </div>
+          <div class="relative mb-4">
+            <label for="email" class="leading-7 text-sm text-gray-600"
+              >Email</label
+            >
+            <input
+              required
+              type="email"
+              id="email"
+              name="email"
+              class="w-full bg-white rounded border border-gray-300 focus:border-gray-500 focus:ring-2 focus:ring-gray-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+          <div class="relative mb-4">
+            <label for="password" class="leading-7 text-sm text-gray-600"
+              >Password</label
+            >
+            <input
+              required
+              type="password"
+              id="password"
+              name="password"
+              class="w-full bg-white rounded border border-gray-300 focus:border-gray-500 focus:ring-2 focus:ring-gray-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+          <div class="relative mb-4">
+            <label
+              for="confirm-password"
+              class="leading-7 text-sm text-gray-600"
+              >Confirm Password</label
+            >
+            <input
+              required
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              class="w-full bg-white rounded border border-gray-300 focus:border-gray-500 focus:ring-2 focus:ring-gray-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+            <div id="validation-container" class="text-sm text-red-500"></div>
+          </div>
+          <button
+            type="submit"
+            id="submit_btn"
+            class="flex items-center justify-center text-white bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-gray-600 rounded text-lg"
+          >
+            <div class="loader-container">
+              <div class="loader"></div>
+            </div>
+            <span>Sign Up</span>
+          </button>
+          <p class="text-sm text-gray-800 mt-3">
+            Already have an account?
+            <a href="../login/index.html" class="underline">Login</a>.
+          </p>
+        </form>
+      </div>
+    </section>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
