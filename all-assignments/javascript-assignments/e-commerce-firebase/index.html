@@ -9,6 +9,7 @@
       src="https://kit.fontawesome.com/e42725d427.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body class="mt-[100px] sm:mt-[80px] md:mt-[60px] lg:mt-[40px]">
     <header
@@ -236,6 +237,19 @@
         </div>
       </div>
     </section>
+
+    <div
+      id="whole_page_loader"
+      class="flex items-center justify-center min-h-[100vh] w-full fixed top-0 left-0 bg-white bg-opacity-90 z-50 overflow-hidden"
+    >
+      <div
+        class="bg-black min-h-[100vh] w-full text-white flex items-center justify-center"
+      >
+        <div class="loader-container">
+          <div class="loader"></div>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="./app.js"></script>
   </body>

@@ -1,3 +1,4 @@
+import { showLoader } from "../../app.js";
 import {
   auth,
   createUserWithEmailAndPassword,
@@ -11,8 +12,6 @@ const validationContainer = document.getElementById("validation-container");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirm-password");
 
-const loaderContainer = document.querySelector("#submit_btn .loader-container");
-const submitBtnText = document.querySelector("#submit_btn span");
 // const submitBtn = document.getElementById("submit_btn");
 
 password.addEventListener("keyup", () => {
@@ -22,9 +21,6 @@ password.addEventListener("keyup", () => {
 
 signupForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  submitBtnText.style.display = "none";
-  loaderContainer.style.display = "block";
 
   const userInfo = {
     firstName: e.target[0].value,
@@ -38,7 +34,7 @@ signupForm.addEventListener("submit", (e) => {
   createUserWithEmailAndPassword(auth, email, confirmPassword)
     .then((userCredential) => {
       console.log("user singed up", userCredential);
-
+      showLoader();
       const docRef = doc(db, "users", userCredential.user.uid);
       setDoc(docRef, userInfo)
         .then(() => {

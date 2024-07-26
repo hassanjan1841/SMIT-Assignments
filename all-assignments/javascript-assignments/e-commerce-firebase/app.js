@@ -15,9 +15,29 @@ const signupBtn = document.getElementById("signup-btn");
 const cartIcon = document.getElementById("cart-icon");
 const productsContainer = document.getElementById("products-container");
 const myProductsBtn = document.getElementById("my-products-btn");
+const addProductBtn = document.getElementById("add-product-btn");
 const heroTitle = document.getElementById("hero-title");
 const heroImage = document.getElementById("hero-image");
 const heroDescription = document.getElementById("hero-description");
+const loaderContainer = document.querySelector(".loader-container");
+const submitBtnText = document.querySelector("#submit_btn span");
+const wholePageLoader = document.getElementById("whole_page_loader");
+
+export const showLoader = () => {
+  submitBtnText && (submitBtnText.style.display = "none");
+  loaderContainer && (loaderContainer.style.display = "block");
+  wholePageLoader && (wholePageLoader.style.display = "block");
+};
+export const hideLoader = () => {
+  submitBtnText && (submitBtnText.style.display = "inline-block");
+  loaderContainer && (loaderContainer.style.display = "none");
+  wholePageLoader && (wholePageLoader.style.display = "none");
+};
+
+showLoader();
+// document.addEventListener("DOMContentLoaded", () => {
+//   hideLoader();
+// });
 
 logoutBtn.addEventListener("click", () => {
   signOut(auth).then(() => {
@@ -40,6 +60,7 @@ export const hideButtons = () => {
   signupBtn.style.display = "inline-flex";
   cartIcon ? (cartIcon.style.display = "none") : null;
   myProductsBtn ? (myProductsBtn.style.display = "none") : null;
+  addProductBtn && (addProductBtn.style.display = "none");
 };
 export const showButtons = () => {
   loginBtn.style.display = "none";
@@ -47,12 +68,17 @@ export const showButtons = () => {
   signupBtn.style.display = "none";
   cartIcon ? (cartIcon.style.display = "inline-flex") : null;
   myProductsBtn ? (myProductsBtn.style.display = "inline-flex") : null;
+  addProductBtn && (addProductBtn.style.display = "inline-flex");
 };
 
-getDocs(collection(db, "products")).then((querySnapshot) => {
-  getSingleProduct(querySnapshot);
-  showProducts(querySnapshot);
-});
+getDocs(collection(db, "products"))
+  .then((querySnapshot) => {
+    getSingleProduct(querySnapshot);
+    showProducts(querySnapshot);
+  })
+  .finally(() => {
+    hideLoader();
+  });
 
 export const showProducts = (products) => {
   productsContainer.innerHTML = "";
@@ -79,6 +105,7 @@ export const showProducts = (products) => {
     </div>
     `;
   });
+  // hideLoader();
 };
 
 const getSingleProduct = (products) => {
