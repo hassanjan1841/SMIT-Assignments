@@ -21,6 +21,7 @@ const cartProductsData = [];
 const processedProductIds = new Set(); // Set to keep track of processed product IDs
 const totalFinalPriceEl = document.getElementById("total-final-price");
 const subTotalPrice = document.getElementById("sub-total");
+const deliveryChargeEl = document.getElementById('delivery-charges')
 
 let userId = { id: "" };
 
@@ -266,7 +267,7 @@ function displayProduct(product, quantity, cartId, deliveryCharges) {
       </div>
       <div class="flex items-center flex-col min-[550px]:flex-row w-full max-xl:max-w-xl max-xl:mx-auto gap-2">
         <h6 class="font-manrope font-bold text-2xl leading-9 text-black w-full max-w-[176px] text-center" id="delivery_charges">
-          $${deliveryCharges}.00 <span class="text-sm text-gray-300 ml-3 lg:hidden whitespace-nowrap">(Delivery Charge)</span>
+          ${deliveryCharges}.00 <span class="text-sm text-gray-300 ml-3 lg:hidden whitespace-nowrap">(Delivery Charge)</span>
         </h6>
         <div class="flex items-center w-full mx-auto justify-center">
           <button onclick="decrement(this)" data-product-price="${productPrice}" data-cart-id="${cartId}" class="group rounded-l-full px-6 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50">
@@ -282,7 +283,7 @@ function displayProduct(product, quantity, cartId, deliveryCharges) {
           </button>
         </div>
         <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 w-full max-w-[176px] text-center">
-          $${+productPrice.slice(1) * quantity}.00
+          ${+productPrice.slice(1) * quantity}.00
         </h6>
       </div>
     </div>`;
