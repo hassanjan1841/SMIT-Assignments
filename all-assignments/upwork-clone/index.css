@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+header {
+  width: 80%;
+  margin: 0 auto;
+}
+.left-header {
+  width: 50%;
+  margin: 20px 0;
+  display: inline-block;
+}
+.upwork-logo img {
+  vertical-align: middle;
+  width: 13%;
+}
+
+.upper-header-tabs {
+  width: 70%;
+  list-style: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+.upper-header-tabs li,
+.upper-header-tabs select option {
+  display: inline;
+  vertical-align: middle;
+  margin: 0 15px;
+  text-align: center;
+}
+.header-tabs-list-item a {
+  text-decoration: none;
+  color: black;
+} 
+.upper-header-tabs select, select[name="talent"], select[name="more-header-tabs"] {
+  font-size: 14px;
+  padding: 5px 0px;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+}
+.upper-header-tabs select:focus, select[name="talent"]:focus,select[name="more-header-tabs"]:focus {
+  border: none;
+  outline: none;
+}
+.right-header {
+  width: 40%;
+  display: inline-block;
+  margin-left: 145px;
+}
+.search-header {
+  width: 55%;
+  display: inline-block;
+}
+input[name="search"] {
+  font-size: 15px;
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0px 0px 3px grey;
+}
+.login-signup {
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+}
+.login-btn,
+.signup-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.login-btn {
+  background-color: white;
+  color: black;
+}
+.login-btn:hover {
+  background-color: #13a800;
+  color: white;
+}
+.signup-btn {
+  background-color: #13a800;
+  color: white;
+}
+.signup-btn:hover {
+  background-color: white;
+  color: black;1
+}
+.lower-header-tabs {
+  width: 100%;
+}
+.lower-header-tabs ul {
+  list-style: none;
+}
+
+.lower-header-tabs ul li {
+  display: inline-block;
+  margin: 20px 10px;
+}
+.lower-header-tabs ul li a {
+  text-decoration: none;
+  color: black;
+}
+.first-section {
+  width: 70%;
+  margin: 41px auto;
+}
+.left-section {
+  width: 50%;
+  display: inline-block;
+}
+.left-section h1 {
+  font-size: 70px;
+  color: #13A800;
+}
+.left-section h3 {
+  color: #5e6d55;
+  margin: 30px 0;
+  margin-bottom: 40px;
+  font-size: 20px;
+}
+.get-started-btn {
+  padding: 12px 23px;
+  background-color: #108A01;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+}
+.right-section {
+  width: 45%  ;
+  text-align: center;
+  display: inline-block;
+}
+.right-section img {
+  width: 70%;
+}
+.middle-section {
+  width: 100%;
+  margin: 40px 0;
+}
+.middle-image {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.bottom-section {
+  width: 100%;
+  margin-top: 50px;
+}
+.bottom-section h4 {
+  font-size: 16px;
+  color: #9aaa97;
+}
+.bottom-section img {
+  width: 100px;
+  height: 100px;
+  margin: 0 18px;
+}
+.bottom-section img+img+img {
+  width: 60px;
+}
+.bottom-section img {
+  margin-left: 0px;
+}
+.second-section {
+  width: 70%;
+  margin: 70px auto;
+}
+.browse-talent {
+  width: 100%;
+  margin: 40px 0;
+}
+.browse-talent h1 {
+  font-size: 42px;
+  margin-bottom: 14px;
+}
+.browse-talent p {
+  color: #5e6d55;
+  font-size: 16px;
+}
+.browse-jobs-link {
+  color: #14a800;
+  font-size: 16px;
+}
+.sub-sections-talents {
+  width: 100%;
+  margin: 50px 0;
+}
+.sub-section {
+  width: 18%;
+  padding: 20px;
+  background: #f7faf7;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 7.5px 0px;
+  margin-right: 40px;
+  height: 100px;
+}
+.sub-section {
+  margin-left: 0;
+}
+.sub-section:hover {
+  background-color: #E4EBE4;
+}
+.sub-section-title {
+  font-size: 23px;
+  color: #001e00;
+}
+.sub-section-details {
+  padding-top: 20px;
+}
+.sub-section-details span {
+  margin: 0 20px;
+  color: #5e6d55;
+}

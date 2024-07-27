@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Weather App</h1>
+        <div class="search-bar">
+          <input type="text" id="city-input" placeholder="Enter city" />
+          <button id="search-btn">Search</button>
+        </div>
+      </header>
+
+      <section class="current-weather">
+        <h2 id="city-name">City Name</h2>
+
+        <div class="weather-details">
+          <img id="weather-icon" src="" alt="Weather Icon" />
+          <div>
+            <p id="temperature">Temperature: --°C</p>
+            <p id="description">Description: --</p>
+            <p id="wind">Wind: -- km/h</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="forecast">
+        <h2>5-Day Forecast</h2>
+        <div class="forecast-container" id="forecast-container">
+          <!-- Forecast cards will be dynamically inserted here -->
+        </div>
+      </section>
+
+      <section class="additional-info">
+        <h2>Additional Information</h2>
+        <p id="humidity">Humidity: --%</p>
+        <p id="pressure">Pressure: -- hPa</p>
+      </section>
+    </div>
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
+  </body>
+</html>

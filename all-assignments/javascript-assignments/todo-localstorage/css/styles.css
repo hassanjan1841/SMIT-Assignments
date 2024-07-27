@@ -1,0 +1,149 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.app-container {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content h1 {
+  font-size: 24px;
+  color: #333333;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+#user-email {
+  margin-right: 10px;
+  font-size: 14px;
+  color: #666666;
+}
+
+#logout-button {
+  padding: 5px 10px;
+  background-color: #ff6b6b;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#logout-button:hover {
+  background-color: #ff4c4c;
+}
+
+.todo-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-input-container input {
+  width: calc(100% - 90px);
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.todo-input-container button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.todo-input-container button:hover {
+  background-color: #0056b3;
+}
+
+main {
+  margin-top: 20px;
+}
+
+ul#task-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul#task-list li {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul#task-list li .task-details {
+  flex: 1;
+  margin: 0;
+  font-size: 16px;
+  color: #333333;
+}
+
+ul#task-list li .delete-button {
+  background-color: #ff6b6b;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+ul#task-list li .delete-button:hover {
+  background-color: #ff4c4c;
+}
+
+.email-list-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.email-item {
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.email-item:hover {
+  background-color: #cccccc;
+}

@@ -1,0 +1,275 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html,
+.container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "cursive", sans-serif;
+  background-color: #111317;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: space-between;
+  color: white;
+  width: 100%;
+}
+.inner-container {
+  min-width: 800px;
+  max-width: 800px;
+}
+.container {
+  padding: 20px;
+}
+.main-heading {
+  text-align: start;
+  width: 100%;
+}
+
+.statistics {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  font-size: 18px;
+  margin: 15px 0;
+}
+.statistics-data {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
+.statistics-data p {
+  flex: 1;
+  background-color: #292e37;
+  padding: 30px 15px;
+  color: white;
+  font-weight: bolder;
+  border-radius: 8px;
+}
+.statistics-data p span {
+  margin: 20px 0;
+}
+.statistics h4 {
+  /*color: black;*/
+  margin: 10px 0;
+}
+
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border: 0.3px solid #3d3d3e;
+}
+
+.students-table th,
+.students-table td {
+  border-bottom: 1px solid #3d3d3e;
+  padding: 12px;
+  text-align: left;
+  min-width: 80px;
+  font-size: 0.8rem;
+}
+
+.students-table th {
+  background-color: #1c1f28;
+
+  color: white;
+}
+
+.students-table td button {
+  margin-right: 5px;
+}
+.add-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 15px 0;
+}
+.modern-btn {
+  padding: 10px 20px;
+  border: none;
+  background: #faf9f6;
+  color: black;
+  cursor: pointer;
+  border-radius: 30px;
+  justify-self: flex-end;
+  transition:
+    background 0.3s,
+    transform 0.2s;
+}
+
+.modern-btn:hover {
+  background: #292e37;
+  transform: scale(1.05);
+  color: white;
+}
+
+.modern-btn:active {
+  transform: scale(0.95);
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+  backdrop-filter: blur(5px); /* Blur background */
+
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #292e37;
+  border-radius: 10px;
+  padding: 20px;
+  width: 500px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h2 {
+  color: #fff;
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  color: #ddd;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 16px;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+  color: #ccc;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.button[type="submit"].modern-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #303234;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  position: relative;
+}
+
+.button.active {
+  background-color: #303234;
+}
+
+.button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: black;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #1c1d1e;
+}
+.animation {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  opacity: 1;
+  color: white;
+  font-weight: bolder;
+  font-size: 1.2rem;
+  animation: fadeOutUp 1s forwards;
+}
+
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.notification {
+  position: fixed;
+  top: 10px;
+  right: -100%;
+  background: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: block;
+  visibility: hidden;
+
+  transition: 0.4s right ease-in-out;
+}
+
+@media screen and (max-width: 760px) {
+  body,
+  html,
+  .container {
+    align-items: flex-start;
+  }
+}

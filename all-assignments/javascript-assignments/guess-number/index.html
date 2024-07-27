@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World</title>
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="start-container">
+      <h1>Guess Number Game (1 - 10)</h1>
+      <div class="start-button-container">
+        <a href="#" onclick="startGame()" class="start-btn">START</a>
+      </div>
+    </div>
+    <div class="game-container">
+      <div class="game-whole-container">
+        <div class="game-content">
+          <h1>Guess Number Game (1 - 10)</h1>
+          <p class="lives">
+            <span class="live-counter"></span>
+          </p>
+        </div>
+        <div class="game-inner-container">
+          <div class="user-container">
+            <h2>User Number</h2>
+            <div class="user-input-container">
+              <input
+                type="text"
+                id="userNumber"
+                placeholder="Enter your guess number"
+                maxlength="2"
+              />
+              <button onclick="guessNumber()" class="check">Check</button>
+            </div>
+          </div>
+          <div class="computer-container">
+            <h2>Random Number</h2>
+            <div class="guess-number">0</div>
+          </div>
+          <div class="result-container">
+            <h2 class="result-text"></h2>
+            <button onclick="tryAgain()" class="try-again">Try Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="error-modal">
+      <div class="modal">
+        <span class="modal-close-btn" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+          <h2>Please Write Something</h2>
+      </div>
+    </div>
+    <script defer type="text/javascript" src="./script.js"></script>
+  </body>
+</html>

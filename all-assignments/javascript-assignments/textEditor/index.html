@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Editor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="editor-container">
+      <div class="toolbar">
+        <button id="bold-btn"><b>B</b></button>
+        <button id="italic-btn"><i>I</i></button>
+        <button id="underline-btn"><u>U</u></button>
+        <input type="color" id="color-picker" />
+        <select id="font-size">
+          <option value="12px">12px</option>
+          <option value="14px">14px</option>
+          <option value="16px">16px</option>
+          <option value="18px">18px</option>
+          <option value="20px">20px</option>
+        </select>
+        <button id="undo-btn"><img src="undo.svg" alt="Undo" /></button>
+        <button id="redo-btn"><img src="redo.svg" alt="Redo" /></button>
+        <select id="alignment">
+          <option value="left">Left</option>
+          <option value="center">Center</option>
+          <option value="right">Right</option>
+          <option value="justify">Justify</option>
+        </select>
+        <button id="list-ul-btn">
+          <img src="ul.svg" alt="Unordered List" />
+        </button>
+        <button id="list-ol-btn">
+          <img src="ol.svg" alt="Ordered List" />
+        </button>
+      </div>
+      <div id="editor" contenteditable="true"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

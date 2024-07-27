@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Countdown</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Birthday Countdown</h1>
+      <div class="input-group">
+        <input
+          type="date"
+          id="birthday-input"
+          placeholder="Enter your birthday"
+        />
+        <button id="start-button">Start</button>
+      </div>
+      <div id="countdown" class="hidden">
+        <div><span id="days"></span>Days</div>
+        <div><span id="hours"></span>Hours</div>
+        <div><span id="minutes"></span>Minutes</div>
+        <div><span id="seconds"></span>Seconds</div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

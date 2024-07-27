@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="./assets/css/index.css" type="text/css" />
+  </head>
+  <body>
+    <h1 align="center" class="main-heading" id="top">Registraiton Form</h1>
+
+    <!-- navigation start -->
+    <table align="center" cellpadding="8" class="navigation">
+      <tr>
+        <td align="center"><a href="./index.html">Home</a></td>
+        <td align="center">
+          <a href="./gallery.html">Gallery</a>
+        </td>
+        <td align="center">
+          <a href="./resume.html">Resume / CV</a>
+        </td>
+        <td align="center"><a href="./form.html">Form</a></td>
+        <td align="center">
+          <a href="./periodic-table.html">Periodic Table</a>
+        </td>
+      </tr>
+    </table>
+    <!-- navigation end -->
+
+    <!-- form start -->
+    <div class="form-container">
+      <form>
+        <table align="center" cellspacing="20" cellpadding="20">
+          <tr>
+            <td>
+              <label for="name">Name: </label
+              ><input type="text" placeholder="Input Your Name" id="name" />
+            </td>
+            <td>
+              <label for="father-name">Father Name: </label
+              ><input
+                type="text"
+                placeholder="Input Your father-name Name"
+                id="father-name"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="email">Email: </label>
+              <input type="email" placeholder="Input Your Email" id="email" />
+            </td>
+            <td>
+              <label for="number">Phone Number: </label>
+              <input
+                type="number"
+                placeholder="Input Your Number"
+                id="number"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="age">Age: </label>
+              <input type="number" placeholder="Input Your Age" id="age" />
+            </td>
+            <td>
+              <label>Gender: </label>
+
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                checked
+                value="male"
+              />
+              <label for="male">Male</label>
+
+              <input type="radio" id="female" name="gender" value="female" />
+              <label for="female">Female</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Skills: </label>
+
+              <input type="checkbox" id="HTML" checked value="html" />
+              <label for="html">HTML</label>
+
+              <input type="checkbox" id="css" value="css" />
+              <label for="css">CSS</label>
+
+              <input type="checkbox" id="JavaScript" value="javascript" />
+              <label for="JavaScript">JavaScript</label>
+            </td>
+            <td>
+              <label for="picture">Profile Pic: </label>
+              <input type="file" id="picture" />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <p>Comments:</p>
+              <textarea
+                name="comments"
+                cols="50"
+                rows="10"
+                placeholder="Any Comments Related to Our Company..."
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td align="right" colspan="2">
+              <input type="submit" value="Submit" id="submit-button" />
+            </td>
+          </tr>
+        </table>
+      </form>
+      <!-- form end -->
+      <h1 class="go-to-top"><a href="#top">Go to Top</a></h1>
+    </div>
+  </body>
+</html>

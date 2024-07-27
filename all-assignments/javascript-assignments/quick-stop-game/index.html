@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QUICK STOP CHALLENGE</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Quick Stop Challenge</h1>
+      <div class="game">
+        <div class="number" id="countdown">0</div>
+        <input type="number" id="userNumber" placeholder="Enter number" />
+        <button id="startButton" onclick="start()">Start</button>
+        <button id="stopButton" onclick="stop()" disabled>Stop</button>
+
+        <div class="range-inputs">
+          <input type="number" id="startRange" placeholder="Start of Range" />
+          <input type="number" id="endRange" placeholder="End of Range" />
+          <button id="setRangeButton" onclick="setRange()">Set Range</button>
+        </div>
+      </div>
+      <div class="result" id="result"></div>
+    </div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>Please enter a number!</p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

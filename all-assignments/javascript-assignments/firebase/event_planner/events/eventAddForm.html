@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add an Event</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <h2 class="text-2xl font-bold mb-6 text-gray-900">Add Event</h2>
+      <form id="event-add-form" class="space-y-6">
+        <div>
+          <label
+            for="event-name"
+            class="block text-sm font-medium text-gray-700"
+            >Event Name</label
+          >
+          <input
+            type="text"
+            id="event-name"
+            name="event-name"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            placeholder="Enter event name"
+            required
+          />
+        </div>
+        <div>
+          <label
+            for="event-date"
+            class="block text-sm font-medium text-gray-700"
+            >Event Date</label
+          >
+          <input
+            type="date"
+            id="event-date"
+            name="event-date"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            required
+          />
+        </div>
+        <div>
+          <label
+            for="event-time"
+            class="block text-sm font-medium text-gray-700"
+            >Event Time</label
+          >
+          <input
+            type="time"
+            id="event-time"
+            name="event-time"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            required
+          />
+        </div>
+        <div>
+          <label
+            for="event-location"
+            class="block text-sm font-medium text-gray-700"
+            >Event Location</label
+          >
+          <input
+            type="text"
+            id="event-location"
+            name="event-location"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            placeholder="Enter event location"
+            required
+          />
+        </div>
+        <div>
+          <label
+            for="event-description"
+            class="block text-sm font-medium text-gray-700"
+            >Event Description</label
+          >
+          <textarea
+            id="event-description"
+            name="event-description"
+            rows="4"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            placeholder="Enter event description"
+            required
+          ></textarea>
+        </div>
+        <div>
+          <label
+            for="event-category"
+            class="block text-sm font-medium text-gray-700"
+            >Event Category</label
+          >
+          <select
+            id="event-category"
+            name="event-category"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            required
+          >
+            <option value="">Select category</option>
+            <option value="conference">Conference</option>
+            <option value="workshop">Workshop</option>
+            <option value="meetup">Meetup</option>
+            <option value="webinar">Webinar</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            for="event-image"
+            class="block text-sm font-medium text-gray-700"
+            >Event Image</label
+          >
+          <input
+            type="file"
+            id="event-image"
+            name="event-image"
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            required
+          />
+        </div>
+        <div class="flex justify-end">
+          <button
+            type="submit"
+            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Add Event
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

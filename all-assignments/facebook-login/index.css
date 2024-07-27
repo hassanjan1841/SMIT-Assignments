@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #f0f2f5;
+}
+section {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+.left-section {
+  width: 45%;
+  margin-top: 70px;
+  float: left;
+}
+.facebook-logo {
+  width: 100%;
+  /* margin: 0 auto; */
+}
+.facebook-logo img {
+  width: 65%;
+  /* vertical-align: middle; */
+}
+.facebook-info {
+  font-size: 28px;
+  color: #1c1e21;
+  margin-left: 35px;
+}
+.right-section {
+  width: 50%;
+  /* height: 10px; */
+  display: inline-block;
+}
+.form-container {
+  width: 60%;
+  margin: 0px auto;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 30px 15px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px grey;
+}
+input {
+  display: block;
+  padding: 15px 14px;
+  width: 90%;
+  margin: 15px auto;
+  border-radius: 6px;
+  border: none;
+  font-size: 18px;
+  box-shadow: 0px 0px 2px grey;
+}
+input[type="submit"] {
+  width: 95%;
+  background-color: #1877f2;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+.forgot-pass-link {
+  display: block;
+  width: 50%;
+  margin: 0px auto;
+  margin-top: 20px;
+  text-align: center;
+  color: #1877f2;
+  font-size: 14px;
+  text-decoration: none;
+}
+.create-account-btn {
+  background-color: #42b72a;
+  color: white;
+  font-size: 17px;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.right-section-bottom-text {
+  width: 100%;
+  margin: 0px auto;
+  margin-top: 20px;
+  text-align: center;
+}
+footer {
+  width: 100%;
+  height: 20vh;
+  margin-top: 80px;
+  background-color: #ffffff;
+  color: #8a8d91;
+  padding-top: 40px;
+}
+.footer-inner {
+  width: 60%;
+  margin: 0 auto;
+}
+footer button {
+  padding: 1px 8px;
+  margin: 0 10px;
+  font-size: 20px;
+}
