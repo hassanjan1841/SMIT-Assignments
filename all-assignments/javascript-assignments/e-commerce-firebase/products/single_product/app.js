@@ -34,11 +34,12 @@ const cartProductInfo = {
   productId: searchParams.get("productId"),
   userId: null,
   quantity: 1,
+  deliveryCharges: 0,
 };
 
-const addToCart = (user) => {
-  if (user) {
-    cartProductInfo.userId = user.uid;
+const addToCart = () => {
+  if (cartProductInfo.userId != null) {
+    cartProductInfo.userId;
     const collectionRef = collection(db, "cart");
     addDoc(collectionRef, cartProductInfo)
       .then((cartProduct) => {
@@ -56,6 +57,7 @@ const addToCart = (user) => {
 };
 
 onAuthStateChanged(auth, (user) => {
+  cartProductInfo.userId = user?.uid;
   addToCartBtn.addEventListener("click", () => {
     console.log("add to cart clicked");
     showLoader();
@@ -75,23 +77,61 @@ const showLoginModal = () => {
   });
 };
 
+const updateDeliveryRate = (radioVAlue) => {
+  switch (radioVAlue) {
+    case "tcs":
+      return `$200`;
+      break;
+    case "leopard":
+      return `$300`;
+      break;
+    case "dhl":
+      return `$400`;
+      break;
+    case "m&p":
+      return `$100`;
+      break;
+    default:
+      return `$0`;
+  }
+};
 document.querySelectorAll('input[name="courier"]').forEach((radio) => {
+  if (radio.checked) {
+    console.log("radio value", radio.value);
+    // updateDeliveryRate(radio.value);
+    cartProductInfo.deliveryCharges = updateDeliveryRate(radio.value);
+  }
   radio.addEventListener("change", (e) => {
-    switch (e.target.value) {
-      case "tcs":
-        deliveryChargesEl.innerHTML = `$200`;
-        break;
-      case "leopard":
-        deliveryChargesEl.innerHTML = `$300`;
-        break;
-      case "dhl":
-        deliveryChargesEl.innerHTML = `$400`;
-        break;
-      case "m&p":
-        deliveryChargesEl.innerHTML = `$100`;
-        break;
-      default:
-        deliveryChargesEl.innerHTML = `$0`;
-    }
+    console.log("radio value", e.target.value);
+    // updateDeliveryRate(e.target.value);
+    cartProductInfo.deliveryCharges = updateDeliveryRate(e.target.value);
   });
+});
+
+// Function to increment the quantity of a product
+async function increment(el) {
+  const quantityInput = el.previousElementSibling;
+  const quantity = +quantityInput.value;
+  quantityInput.value = quantity + 1;
+  cartProductInfo.quantity = quantityInput.value;
+}
+
+// Function to decrement the quantity of a product
+async function decrement(el) {
+  const quantityInput = el.nextElementSibling;
+  const quantity = parseInt(quantityInput.value);
+  if (quantity > 1) {
+    quantityInput.value = quantity - 1;
+  }
+  cartProductInfo.quantity = quantityInput.value;
+}
+
+const incrementBtn = document.getElementById("incrementBtn");
+const decrementBtn = document.getElementById("decrementBtn");
+
+incrementBtn.addEventListener("click", () => {
+  increment(incrementBtn);
+});
+decrementBtn.addEventListener("click", () => {
+  decrement(decrementBtn);
 });

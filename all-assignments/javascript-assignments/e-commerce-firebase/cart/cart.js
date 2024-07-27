@@ -50,7 +50,7 @@ async function fetchCartProducts() {
     const querySnapshot = await getDocs(q);
     // Use Promise.all to handle all fetch operations concurrently
     const fetchPromises = querySnapshot.docs.map(async (singleDoc) => {
-      const { productId, quantity, userId } = singleDoc.data();
+      const { productId, quantity, userId, deliveryCharges } = singleDoc.data();
 
       // Check if the productId has already been processed
       if (!processedProductIds.has(productId)) {
@@ -60,7 +60,7 @@ async function fetchCartProducts() {
         if (product) {
           console.log("Product data:", product, singleDoc.data());
           cartProductsData.push({ product, quantity, userId });
-          displayProduct(product, quantity, singleDoc.id);
+          displayProduct(product, quantity, singleDoc.id, deliveryCharges);
           processedProductIds.add(productId); // Add to set after processing
         }
       }
@@ -234,7 +234,7 @@ window.increment = increment;
 window.decrement = decrement;
 
 // Function to display a single product
-function displayProduct(product, quantity, cartId) {
+function displayProduct(product, quantity, cartId, deliveryCharges) {
   const {
     productName,
     productCategory,
@@ -266,7 +266,7 @@ function displayProduct(product, quantity, cartId) {
       </div>
       <div class="flex items-center flex-col min-[550px]:flex-row w-full max-xl:max-w-xl max-xl:mx-auto gap-2">
         <h6 class="font-manrope font-bold text-2xl leading-9 text-black w-full max-w-[176px] text-center" id="delivery_charges">
-          $15.00 <span class="text-sm text-gray-300 ml-3 lg:hidden whitespace-nowrap">(Delivery Charge)</span>
+          $${deliveryCharges}.00 <span class="text-sm text-gray-300 ml-3 lg:hidden whitespace-nowrap">(Delivery Charge)</span>
         </h6>
         <div class="flex items-center w-full mx-auto justify-center">
           <button onclick="decrement(this)" data-product-price="${productPrice}" data-cart-id="${cartId}" class="group rounded-l-full px-6 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50">
