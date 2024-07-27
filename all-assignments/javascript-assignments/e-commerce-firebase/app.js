@@ -20,16 +20,17 @@ const heroTitle = document.getElementById("hero-title");
 const heroImage = document.getElementById("hero-image");
 const heroDescription = document.getElementById("hero-description");
 const loaderContainer = document.querySelector(".loader-container");
-const submitBtnText = document.querySelector("#submit_btn span");
+const submitBtnText = document.querySelector("button span");
 const wholePageLoader = document.getElementById("whole_page_loader");
 
 export const showLoader = () => {
+  console.log("loader showing");
   submitBtnText && (submitBtnText.style.display = "none");
   loaderContainer && (loaderContainer.style.display = "block");
   wholePageLoader && (wholePageLoader.style.display = "block");
 };
 export const hideLoader = () => {
-  submitBtnText && (submitBtnText.style.display = "inline-block");
+  submitBtnText && (submitBtnText.style.display = "flex");
   loaderContainer && (loaderContainer.style.display = "none");
   wholePageLoader && (wholePageLoader.style.display = "none");
 };

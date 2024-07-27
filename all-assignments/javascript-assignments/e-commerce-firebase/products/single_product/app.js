@@ -1,4 +1,4 @@
-import { hideButtons, showButtons } from "../../app.js";
+import { hideButtons, hideLoader, showButtons, showLoader } from "../../app.js";
 import {
   addDoc,
   auth,
@@ -18,6 +18,7 @@ const productImageEl = document.getElementById("product-image");
 const addToCartBtn = document.getElementById("add-to-cart-btn");
 const loginErrorModal = document.getElementById("loginErrorModal");
 const modalCloseBtn = document.getElementById("closeLoginErrorModal");
+const deliveryChargesEl = document.getElementById("delivery_charges");
 
 const docRef = doc(db, "products", searchParams.get("productId"));
 
@@ -45,6 +46,9 @@ const addToCart = (user) => {
       })
       .catch((error) => {
         console.error("Error adding document: ", error);
+      })
+      .finally(() => {
+        hideLoader();
       });
   } else {
     showLoginModal();
@@ -54,6 +58,7 @@ const addToCart = (user) => {
 onAuthStateChanged(auth, (user) => {
   addToCartBtn.addEventListener("click", () => {
     console.log("add to cart clicked");
+    showLoader();
     addToCart(user);
   });
   if (user) {
@@ -69,3 +74,24 @@ const showLoginModal = () => {
     loginErrorModal.style.display = "none";
   });
 };
+
+document.querySelectorAll('input[name="courier"]').forEach((radio) => {
+  radio.addEventListener("change", (e) => {
+    switch (e.target.value) {
+      case "tcs":
+        deliveryChargesEl.innerHTML = `$200`;
+        break;
+      case "leopard":
+        deliveryChargesEl.innerHTML = `$300`;
+        break;
+      case "dhl":
+        deliveryChargesEl.innerHTML = `$400`;
+        break;
+      case "m&p":
+        deliveryChargesEl.innerHTML = `$100`;
+        break;
+      default:
+        deliveryChargesEl.innerHTML = `$0`;
+    }
+  });
+});

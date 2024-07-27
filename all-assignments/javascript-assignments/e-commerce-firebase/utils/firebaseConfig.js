@@ -18,6 +18,8 @@ import {
   getDoc,
   query,
   where,
+  onSnapshot,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
 
 import {
@@ -66,4 +68,6 @@ export {
   query,
   where,
   getDoc,
+  onSnapshot,
+  updateDoc,
 };
