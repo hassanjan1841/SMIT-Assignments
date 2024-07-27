@@ -22,6 +22,7 @@ const heroDescription = document.getElementById("hero-description");
 const loaderContainer = document.querySelector(".loader-container");
 const submitBtnText = document.querySelector("button span");
 const wholePageLoader = document.getElementById("whole_page_loader");
+// const imageUpload = document.getElementById("image-upload");
 
 export const showLoader = () => {
   console.log("loader showing");
@@ -40,7 +41,7 @@ showLoader();
 //   hideLoader();
 // });
 
-logoutBtn.addEventListener("click", () => {
+logoutBtn?.addEventListener("click", () => {
   signOut(auth).then(() => {
     console.log("User signed out");
   });
