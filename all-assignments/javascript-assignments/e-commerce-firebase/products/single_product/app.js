@@ -43,7 +43,7 @@ const addToCart = () => {
     const collectionRef = collection(db, "cart");
     addDoc(collectionRef, cartProductInfo)
       .then((cartProduct) => {
-        alert("Product added to cart");
+        alert("Product added to cart !");
         console.log("Product added to cart", cartProduct);
       })
       .catch((error) => {
