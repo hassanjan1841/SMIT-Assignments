@@ -10,7 +10,7 @@ import {
 } from "../../utils/firebaseConfig.js";
 
 const searchParams = new URLSearchParams(window.location.search);
-console.log(searchParams.get("productId")); // price_descending
+console.log(searchParams.get("productId"));
 
 const productPriceEl = document.getElementById("product-price");
 const productNameEl = document.getElementById("product-name");
