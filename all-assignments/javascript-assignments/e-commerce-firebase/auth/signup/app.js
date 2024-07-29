@@ -74,7 +74,7 @@ signupForm.addEventListener("submit", (e) => {
                 console.log("Document written with ID: ", docRef.id);
                 loaderContainer.style.display = "none";
                 submitBtnText.style.display = "inline-block";
-                window.location.href = "../login/index.html";
+                window.location.href = "/auth/login/index.html";
               })
               .catch((error) => console.log("error", error));
           })
