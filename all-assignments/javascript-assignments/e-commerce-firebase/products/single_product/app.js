@@ -6,8 +6,14 @@ import {
   doc,
   getDoc,
   onAuthStateChanged,
+  setDoc,
 } from "../../utils/firebaseConfig.js";
-import { hideButtons, showButtons } from "../../utils/utils.js";
+import {
+  hideButtons,
+  hideLoader,
+  showButtons,
+  showLoader,
+} from "../../utils/utils.js";
 import { toggleNavbar } from "./utils.js";
 
 const searchParams = new URLSearchParams(window.location.search);
@@ -19,7 +25,6 @@ const productImageEl = document.getElementById("product-image");
 const addToCartBtn = document.getElementById("add-to-cart-btn");
 const loginErrorModal = document.getElementById("loginErrorModal");
 const modalCloseBtn = document.getElementById("closeLoginErrorModal");
-const deliveryChargesEl = document.getElementById("delivery_charges");
 
 toggleNavbar();
 
@@ -43,10 +48,11 @@ const cartProductInfo = {
 const addToCart = () => {
   if (cartProductInfo.userId != null) {
     cartProductInfo.userId;
-    const collectionRef = collection(db, "cart");
-    addDoc(collectionRef, cartProductInfo)
+    const docRef = doc(db, "cart", cartProductInfo.productId);
+    setDoc(docRef, cartProductInfo)
       .then((cartProduct) => {
         console.log("Product added to cart", cartProduct);
+        alert("Product added to cart");
       })
       .catch((error) => {
         console.error("Error adding document: ", error);
@@ -79,43 +85,6 @@ const showLoginModal = () => {
     loginErrorModal.style.display = "none";
   });
 };
-
-const updateDeliveryRate = (radioVAlue) => {
-  switch (radioVAlue) {
-    case "tcs":
-      return `200`;
-      break;
-    case "leopard":
-      return `300`;
-      break;
-    case "dhl":
-      return `400`;
-      break;
-    case "m&p":
-      return `100`;
-      break;
-    default:
-      return `0`;
-  }
-};
-document.querySelectorAll('input[name="courier"]').forEach((radio) => {
-  if (radio.checked) {
-    console.log("radio value", radio.value);
-    // updateDeliveryRate(radio.value);
-    const deliveryCharges = updateDeliveryRate(radio.value);
-    console.log("deliveryCharges", deliveryCharges);
-    cartProductInfo.deliveryCharges = deliveryCharges;
-    deliveryChargesEl.innerHTML = `$${deliveryCharges}.00`;
-  }
-  radio.addEventListener("change", (e) => {
-    console.log("radio value", e.target.value);
-    // updateDeliveryRate(e.target.value);
-    const deliveryCharges = updateDeliveryRate(radio.value);
-    console.log("deliveryCharges", deliveryCharges);
-    cartProductInfo.deliveryCharges = deliveryCharges;
-    deliveryChargesEl.innerHTML = `$${deliveryCharges}.00`;
-  });
-});
 
 // Function to increment the quantity of a product
 async function increment(el) {

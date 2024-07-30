@@ -8,6 +8,7 @@ import { hideButtons, showButtons } from "../../utils/utils.js";
 toggleNavbar();
 onAuthStateChanged(auth, (user) => {
   if (user) {
+    window.location.href = "/";
     showButtons();
   } else {
     hideButtons();

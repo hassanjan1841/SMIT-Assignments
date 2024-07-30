@@ -1,6 +1,6 @@
 // Import necessary functions and objects from your Firebase configuration
-import { hideButtons, showButtons } from "../app.js";
-import { toggleNavbar } from "../products/single_product/app.js";
+
+import { toggleNavbar } from "../products/single_product/utils.js";
 import {
   auth,
   collection,
@@ -15,13 +15,15 @@ import {
   updateDoc,
   setDoc,
 } from "../utils/firebaseConfig.js";
+import { hideButtons, showButtons } from "../utils/utils.js";
 toggleNavbar();
 // Reference to the cart products container element
 const cartProductsEl = document.getElementById("cartProductsContainer");
-const cartProductsData = [];
-const processedProductIds = new Set(); // Set to keep track of processed product IDs
+const cartProductsData = []; // Set to keep track of processed product IDs
+// const processedProductIds = new Set();
 const totalFinalPriceEl = document.getElementById("total-final-price");
 const subTotalPrice = document.getElementById("sub-total");
+const deliveryChargesEL = document.getElementById("delivery-charges");
 
 let userId = { id: "" };
 
@@ -29,16 +31,26 @@ onAuthStateChanged(auth, async (user) => {
   cartProductsEl.innerHTML = "";
   userId.id = user.uid;
   if (user) {
-    fetchCartProducts();
+    await fetchCartProducts();
     showButtons();
+    await caartProducts();
   } else {
     hideButtons();
   }
 });
 
 // const cartId = { cartId: "" };
+async function caartProducts() {
+  const q = query(collection(db, "cart"), where("userId", "==", userId.id));
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    console.log(doc.id, " => ", doc.data());
+  });
+}
+// await caartProducts();
 
 async function fetchCartProducts() {
+  const processedProductIds = new Set();
   try {
     // Clear existing data and arrays
     cartProductsEl.innerHTML = "";
@@ -55,12 +67,13 @@ async function fetchCartProducts() {
 
       // Check if the productId has already been processed
       if (!processedProductIds.has(productId)) {
+        console.log("Product ID:", productId, processedProductIds);
         const product = await fetchProductData(productId);
 
         // Only process valid products
         if (product) {
           console.log("Product data:", product, singleDoc.data());
-          cartProductsData.push({ product, quantity, userId });
+          cartProductsData.push({ product, quantity, userId, deliveryCharges });
           displayProduct(product, quantity, singleDoc.id, deliveryCharges);
           processedProductIds.add(productId); // Add to set after processing
         }
@@ -70,6 +83,7 @@ async function fetchCartProducts() {
     // Wait for all fetch operations to complete
     await Promise.all(fetchPromises);
     await fetchProductPrices();
+    console.log("All IDs", processedProductIds);
     console.log("All done", cartProductsData);
   } catch (error) {
     console.log("Error setting up real-time listener:", error);
@@ -77,6 +91,7 @@ async function fetchCartProducts() {
 }
 
 async function updatePrices() {
+  const processedProductIds = new Set();
   try {
     // Clear existing data and arrays
     // cartProductsEl.innerHTML = "";
@@ -98,7 +113,7 @@ async function updatePrices() {
         // Only process valid products
         if (product) {
           console.log("Product data:", product, singleDoc.data());
-          cartProductsData.push({ product, quantity, userId });
+          cartProductsData.push({ product, quantity, userId, deliveryCharges });
           // displayProduct(product, quantity, singleDoc.id);
           processedProductIds.add(productId); // Add to set after processing
         }
@@ -117,13 +132,16 @@ async function updatePrices() {
 // Functipon to calculate the total price of cart products
 function calculateTotalPrice() {
   let totalPrice = 0;
+  let deliveryCharges = 0;
   cartProductsData.forEach((product) => {
+    console.log("Product:", product);
     const productPrice = +product.product.productPrice.slice(1);
     const quantity = product.quantity;
+    deliveryCharges = +product.deliveryCharges;
     totalPrice += productPrice * quantity;
     // console.log(totalPrice);
   });
-  return totalPrice;
+  return { totalPrice, deliveryCharges };
 }
 
 // Function to fetch product prices and calculate the total price of cart products
@@ -137,19 +155,15 @@ async function fetchProductPrices() {
         product.product.productPrice = productData.productPrice;
       }
     }
-    const totalPrice = calculateTotalPrice();
+    const { totalPrice, deliveryCharges } = calculateTotalPrice();
     subTotalPrice.innerHTML = `$${totalPrice}.00`;
-    totalFinalPriceEl.innerHTML = `$${totalPrice + 15}.00`;
+    totalFinalPriceEl.innerHTML = `$${totalPrice + deliveryCharges}.00`;
+    deliveryChargesEL.innerHTML = `$${deliveryCharges}.00`;
     console.log("Total price:", totalPrice);
   } catch (error) {
     console.log("Error fetching product prices:", error);
   }
 }
-
-// fetchProductPrices();
-// Call the fetchProductPrices function
-
-// Realtime update for total price
 
 // Function to fetch product data by product ID
 async function fetchProductData(productId) {
@@ -175,6 +189,7 @@ async function increment(el) {
   const quantity = +quantityInput.value;
   const totalPriceEl = el.parentElement.nextElementSibling;
   const totalPrice = +productPrice * (quantity + 1);
+  const deliveryCharges = +el.dataset.deliveryCharges;
 
   totalPriceEl.innerHTML = `$${totalPrice}.00`;
   quantityInput.value = quantity + 1;
@@ -188,7 +203,8 @@ async function increment(el) {
     updateCartData(el.dataset.cartId, quantity + 1);
     const subtotalPrice = calculateTotalPrice();
     subTotalPrice.innerHTML = `$${subtotalPrice}.00`;
-    totalFinalPriceEl.innerHTML = `$${subtotalPrice + 15}.00`;
+    totalFinalPriceEl.innerHTML = `$${subtotalPrice + deliveryCharges}.00`;
+    deliveryChargesEL.innerHTML = `$${deliveryCharges}.00`;
   } catch (error) {
     console.log(error);
   }
@@ -201,6 +217,7 @@ async function decrement(el) {
   if (quantity > 1) {
     quantityInput.value = quantity - 1;
     const productPrice = +el.dataset.productPrice.slice(1);
+    const deliveryCharges = +el.dataset.deliveryCharges;
     const totalPriceEl = el.parentElement.nextElementSibling;
     const totalPrice = +productPrice * (quantity - 1);
     totalPriceEl.innerHTML = `$${totalPrice}.00`;
@@ -214,7 +231,8 @@ async function decrement(el) {
       updateCartData(el.dataset.cartId, quantity - 1);
       const subtotalPrice = calculateTotalPrice();
       subTotalPrice.innerHTML = `$${subtotalPrice}.00`;
-      totalFinalPriceEl.innerHTML = `$${subtotalPrice + 15}.00`;
+      totalFinalPriceEl.innerHTML = `$${subtotalPrice + deliveryCharges}.00`;
+      deliveryChargesEL.innerHTML = `$${deliveryCharges}.00`;
     } catch (error) {
       console.log(error);
     }
@@ -250,7 +268,7 @@ function displayProduct(product, quantity, cartId, deliveryCharges) {
       <div class="flex items-center flex-col min-[550px]:flex-row gap-3 min-[550px]:gap-6 w-full max-xl:justify-center max-xl:max-w-xl max-xl:mx-auto">
         <div class="img-box">
           <a  href="/products/single_product/index.html?productId=${productId}" >
-            <img src="${productImage}" alt="Product Image" class="xl:w-[140px] rounded-xl" />
+            <img src="${productImage}" alt="Product Image" class="xl:w-[140px] sm:w-[160px] w-[300px] object-cover h-[200px] sm:h-[160px] rounded-xl" />
           </a>
         </div>
         <div class="pro-data w-full max-w-sm">
@@ -266,17 +284,15 @@ function displayProduct(product, quantity, cartId, deliveryCharges) {
         </div>
       </div>
       <div class="flex items-center flex-col min-[550px]:flex-row w-full max-xl:max-w-xl max-xl:mx-auto gap-2">
-        <h6 class="font-manrope font-bold text-2xl leading-9 text-black w-full max-w-[176px] text-center" id="delivery_charges">
-          $${deliveryCharges}.00 <span class="text-sm text-gray-300 ml-3 lg:hidden whitespace-nowrap">(Delivery Charge)</span>
-        </h6>
-        <div class="flex items-center w-full mx-auto justify-center">
-          <button onclick="decrement(this)" data-product-price="${productPrice}" data-cart-id="${cartId}" class="group rounded-l-full px-6 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50">
+        
+        <div class="flex items-center w-full mx-auto sm:justify-start justify-center">
+          <button onclick="decrement(this)" data-product-price="${productPrice}" data-delivery="${deliveryCharges}" data-cart-id="${cartId}" class="group rounded-l-full px-6 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50">
             <svg class="stroke-gray-900 transition-all duration-500 group-hover:stroke-black" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
               <path d="M16.5 11H5.5" stroke-width="1.6" stroke-linecap="round" />
             </svg>
           </button>
           <input type="text" value='${quantity}' class="border-y border-gray-200 outline-none text-gray-900 font-semibold text-lg w-full max-w-[118px] min-w-[80px] placeholder:text-gray-900 py-[15px] text-center bg-transparent"  id="quantity"/>
-          <button onclick="increment(this)" data-product-price="${productPrice}" data-cart-id="${cartId}"  class="group rounded-r-full px-6 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50">
+          <button onclick="increment(this)" data-product-price="${productPrice}"  data-delivery="${deliveryCharges}" data-cart-id="${cartId}"  class="group rounded-r-full px-6 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50">
             <svg class="stroke-gray-900 transition-all duration-500 group-hover:stroke-black" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
               <path d="M11 5.5V16.5M16.5 11H5.5" stroke-width="1.6" stroke-linecap="round" />
             </svg>
@@ -290,3 +306,38 @@ function displayProduct(product, quantity, cartId, deliveryCharges) {
 }
 
 // Check for user authentication and fetch cart products
+
+const updateDeliveryRate = (radioVAlue) => {
+  switch (radioVAlue) {
+    case "tcs":
+      return `200`;
+
+    case "leopard":
+      return `300`;
+
+    case "dhl":
+      return `400`;
+
+    case "m&p":
+      return `100`;
+
+    default:
+      return `0`;
+  }
+};
+document.querySelectorAll('input[name="courier"]').forEach((radio) => {
+  if (radio.checked) {
+    console.log("radio value", radio.value);
+    // updateDeliveryRate(radio.value);
+    const deliveryCharges = updateDeliveryRate(radio.value);
+    console.log("deliveryCharges", deliveryCharges);
+    deliveryChargesEL.innerHTML = `$${deliveryCharges}.00`;
+  }
+  radio.addEventListener("change", (e) => {
+    console.log("radio value", e.target.value);
+    // updateDeliveryRate(e.target.value);
+    const deliveryCharges = updateDeliveryRate(radio.value);
+    console.log("deliveryCharges", deliveryCharges);
+    deliveryChargesEL.innerHTML = `$${deliveryCharges}.00`;
+  });
+});

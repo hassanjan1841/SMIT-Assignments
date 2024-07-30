@@ -12,11 +12,17 @@ import {
   storage,
   uploadBytes,
 } from "../../utils/firebaseConfig.js";
-import { hideButtons, hideLoader, showButtons, showLoader } from "../../utils/utils.js";
+import {
+  hideButtons,
+  hideLoader,
+  showButtons,
+  showLoader,
+} from "../../utils/utils.js";
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
     showButtons();
+    window.location.href = "/";
   } else {
     hideButtons();
   }

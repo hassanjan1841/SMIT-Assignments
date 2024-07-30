@@ -14,6 +14,7 @@ import {
   hideLoader,
   showButtons,
   showLoader,
+  showProducts,
 } from "./utils/utils.js";
 
 const logoutBtn = document.getElementById("logout-btn");

@@ -106,7 +106,7 @@
           >
           <a
             id="nav-add-product-btn"
-            href="/products/index.html"
+            href="/products/add_products/index.html"
             class="mr-5 hover:text-gray-900 border-b-2 border-gray-400 flex items-center"
             >Add Product</a
           >
@@ -213,7 +213,7 @@
           >
           <a
             id="add-product-btn"
-            href="/products/index.html"
+            href="/products/add_products/index.html"
             class="mr-5 hover:text-gray-900 border-b-2 border-gray-400 flex items-center"
             >Add Product</a
           >
@@ -305,6 +305,80 @@
           </p>
         </div>
         <div id="cartProductsContainer"></div>
+
+        <div
+          class="bg-gray-50 rounded-xl p-6 w-full mb-8 max-lg:max-w-xl max-lg:mx-auto"
+        >
+          <div class="flex justify-between items-center w-full">
+            <div
+              class="flex items-center px-4 rounded-full border border-gray-200 rounded"
+            >
+              <input
+                id="tcs"
+                type="radio"
+                value="tcs"
+                name="courier"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
+              />
+              <label
+                for="tcs"
+                class="w-full py-4 ms-2 text-sm font-medium text-gray-900"
+                >TCS</label
+              >
+            </div>
+            <div
+              class="flex items-center px-4 border border-gray-200 rounded-full"
+            >
+              <input
+                checked
+                id="dhl"
+                type="radio"
+                value="dhl"
+                name="courier"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
+              />
+              <label
+                for="dhl"
+                class="w-full py-4 ms-2 text-sm font-medium text-gray-900"
+                >DHL</label
+              >
+            </div>
+            <div
+              class="flex items-center px-4 border border-gray-200 rounded-full"
+            >
+              <input
+                checked
+                id="leopard"
+                type="radio"
+                value="leopard"
+                name="courier"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
+              />
+              <label
+                for="leopard"
+                class="w-full py-4 ms-2 text-sm font-medium text-gray-900"
+                >Leopard</label
+              >
+            </div>
+            <div
+              class="flex items-center px-4 border border-gray-200 rounded-full"
+            >
+              <input
+                checked
+                id="m&p"
+                type="radio"
+                value="m&p"
+                name="courier"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
+              />
+              <label
+                for="m&p"
+                class="w-full py-4 ms-2 text-sm font-medium text-gray-900"
+                >M&P</label
+              >
+            </div>
+          </div>
+        </div>
         <div
           class="bg-gray-50 rounded-xl p-6 w-full mb-8 max-lg:max-w-xl max-lg:mx-auto"
         >
