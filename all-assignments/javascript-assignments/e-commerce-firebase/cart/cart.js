@@ -1,5 +1,6 @@
 // Import necessary functions and objects from your Firebase configuration
 import { hideButtons, showButtons } from "../app.js";
+import { toggleNavbar } from "../products/single_product/app.js";
 import {
   auth,
   collection,
@@ -14,7 +15,7 @@ import {
   updateDoc,
   setDoc,
 } from "../utils/firebaseConfig.js";
-
+toggleNavbar();
 // Reference to the cart products container element
 const cartProductsEl = document.getElementById("cartProductsContainer");
 const cartProductsData = [];

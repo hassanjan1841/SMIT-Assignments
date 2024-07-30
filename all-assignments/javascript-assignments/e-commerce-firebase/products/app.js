@@ -1,4 +1,3 @@
-import { hideButtons, showButtons, showProducts } from "../app.js";
 import {
   onAuthStateChanged,
   auth,
@@ -8,8 +7,10 @@ import {
   db,
   getDocs,
 } from "../utils/firebaseConfig.js";
+import { hideButtons, showButtons, showProducts } from "../utils/utils.js";
+import { toggleNavbar } from "./single_product/utils.js";
 
-const productContainer = document.getElementById("products-container");
+toggleNavbar();
 
 onAuthStateChanged(auth, (user) => {
   //   toggleButtons(user);

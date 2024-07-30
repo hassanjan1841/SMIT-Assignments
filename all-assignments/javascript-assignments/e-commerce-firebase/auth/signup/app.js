@@ -1,16 +1,48 @@
-import { showLoader } from "../../app.js";
+import { toggleNavbar } from "../../products/single_product/utils.js";
+
 import {
   auth,
   createUserWithEmailAndPassword,
   db,
   doc,
+  getDownloadURL,
+  onAuthStateChanged,
+  ref,
   setDoc,
+  storage,
+  uploadBytes,
 } from "../../utils/firebaseConfig.js";
+import { hideButtons, hideLoader, showButtons, showLoader } from "../../utils/utils.js";
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    showButtons();
+  } else {
+    hideButtons();
+  }
+});
 
 const signupForm = document.getElementById("signup-form");
 const validationContainer = document.getElementById("validation-container");
+const conValidationContainer = document.getElementById(
+  "con-validation-container"
+);
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirm-password");
+const profileIMageINput = document.getElementById("profileImage");
+const showIMage = document.getElementById("imageEL");
+const loaderContainer = document.querySelector(".loader-container");
+const submitBtnText = document.querySelector("button span");
+toggleNavbar();
+
+profileIMageINput.addEventListener("change", (e) => {
+  console.log("e.target.files[0]", e.target.files[0]);
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    showIMage.src = e.target.result;
+  };
+  reader.readAsDataURL(e.target.files[0]);
+});
 
 // const submitBtn = document.getElementById("submit_btn");
 
@@ -18,32 +50,58 @@ password.addEventListener("keyup", () => {
   console.log("confirmPassword.value", password.value);
   passwordValidation(password.value, password.value);
 });
+confirmPassword.addEventListener("keyup", () => {
+  if (password.value == confirmPassword.value) {
+    conValidationContainer.innerHTML = `<span class="text-sm text-green-500 font-bold">Passwords match</span>`;
+  } else {
+    conValidationContainer.innerHTML = `<span class="text-sm text-red-500 font-bold">Do not Match!</span>`;
+  }
+});
 
 signupForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const userInfo = {
-    firstName: e.target[0].value,
-    lastName: e.target[1].value,
-    email: e.target[2].value,
-    password: e.target[3].value,
-    confirmPassword: e.target[4].value,
+    profileImage: e.target[0].files[0],
+    firstName: e.target[1].value,
+    lastName: e.target[2].value,
+    email: e.target[3].value,
+    password: e.target[4].value,
+    confirmPassword: e.target[5].value,
   };
-
-  const { email, confirmPassword } = userInfo;
+  const { email, confirmPassword, profileImage } = userInfo;
+  if (profileImage === undefined) {
+    alert("Please upload an image");
+    return;
+  }
   createUserWithEmailAndPassword(auth, email, confirmPassword)
     .then((userCredential) => {
       console.log("user singed up", userCredential);
+      const userId = userCredential.user.uid;
       showLoader();
-      const docRef = doc(db, "users", userCredential.user.uid);
-      setDoc(docRef, userInfo)
-        .then(() => {
-          console.log("Document written with ID: ", docRef.id);
-          loaderContainer.style.display = "none";
-          submitBtnText.style.display = "inline-block";
-          window.location.href = "../login/index.html";
-        })
-        .catch((error) => console.log("error", error));
+
+      const imageRef = ref(
+        storage,
+        `profileImages/${userId}/${profileImage.name}`
+      );
+      uploadBytes(imageRef, profileImage).then((snapshot) => {
+        console.log("Uploaded a blob or file!", snapshot);
+        getDownloadURL(imageRef)
+          .then((url) => {
+            console.log("url", url);
+            userInfo.profileImage = url;
+            const docRef = doc(db, "users", userCredential.user.uid);
+            setDoc(docRef, userInfo)
+              .then(() => {
+                console.log("Document written with ID: ", docRef.id);
+                loaderContainer.style.display = "none";
+                submitBtnText.style.display = "inline-block";
+                window.location.href = "/auth/login/index.html";
+              })
+              .catch((error) => console.log("error", error));
+          })
+          .catch((error) => console.log("error", error));
+      });
     })
     .then((error) => console.log("error", error));
 });

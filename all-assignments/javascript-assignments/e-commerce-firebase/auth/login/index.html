@@ -5,8 +5,228 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login | E-Commerce Firebase</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/e42725d427.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
+    <header
+      class="text-gray-600 body-font shadow-md sm:hidden flex flex-col justify-start fixed top-0 left-0 right-0 bg-white z-10 w-full"
+    >
+      <div class="flex flex-col items-center justify-between p-5 w-full">
+        <div class="flex items-center justify-between w-full">
+          <a
+            href="/"
+            class="flex title-font font-medium items-center text-gray-900 md:mb-0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="w-7 h-7 text-white p-2 bg-indigo-500 rounded-full"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              ></path>
+            </svg>
+            <span class="ml-3 text-xl">E-Commerce</span>
+          </a>
+          <span
+            class="flex items-center justify-center hover:cursor-pointer"
+            id="burgerBtn"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </span>
+        </div>
+        <nav
+          id="mobileNav"
+          class="md:ml-auto fixed top-0 bottom-0 left-0 right-0 bg-white flex flex-col items-start justify-start text-3xl px-6 pt-10 gap-7"
+        >
+          <div
+            class="flex items-center justify-end w-full hover:cursor-pointer"
+          >
+            <i class="fa-solid fa-close" id="closeNavBtn"></i>
+          </div>
+          <a
+            id="nav-my-products-btn"
+            href="/products/index.html"
+            class="mr-5 hover:text-gray-900 border-b-2 border-gray-400 flex items-center"
+            >My Products</a
+          >
+          <!-- <a class="mr-5 hover:text-gray-900"></a> -->
+          <!-- <div class="flex items-center justify-between gap-2"> -->
+          <a
+            href="/cart/index.html"
+            class="mr-5 hover:text-gray-900 border-b-2 border-gray-400 flex items-center"
+            id="nav-cart-icon"
+          >
+            Cart
+          </a>
+          <a
+            href="/auth/login/index.html"
+            id="nav-login-btn"
+            class="mr-5 hover:text-gray-900 border-b-2 border-gray-400 flex items-center"
+          >
+            Login
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="w-4 h-4 ml-1"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+
+          <a
+            href="/auth/signup/index.html"
+            id="nav-signup-btn"
+            class="mr-5 hover:text-gray-900 border-b-2 border-gray-400 flex items-center"
+          >
+            Signup
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="w-4 h-4 ml-1"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          <a
+            href="/"
+            id="nav-logout-btn"
+            class="mr-5 hover:text-gray-900 border-b-2 border-gray-400 flex items-center"
+          >
+            Logout
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="w-4 h-4 ml-1"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          <!-- </div> -->
+        </nav>
+      </div>
+    </header>
+    <header
+      class="text-gray-600 body-font shadow-md sm:block hidden fixed top-0 left-0 right-0 bg-white z-10"
+    >
+      <div class="container mx-auto flex items-center flex-wrap p-5">
+        <a
+          href="/"
+          class="flex title-font font-medium items-center text-gray-900 md:mb-0"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-7 h-7 text-white p-2 bg-indigo-500 rounded-full"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+            ></path>
+          </svg>
+          <span class="ml-3 text-xl">E-Commerce</span>
+        </a>
+        <nav
+          class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+        >
+          <a
+            id="my-products-btn"
+            href="/products/index.html"
+            class="mr-5 hover:text-gray-900 border-b-2 border-gray-400 flex items-center"
+            >My Products</a
+          >
+          <!-- <a class="mr-5 hover:text-gray-900"></a> -->
+          <div class="flex items-center justify-between gap-2">
+            <a
+              href="/cart/index.html"
+              class="px-3 py-1 inline-flex items-center bg-gray-100 hover:bg-gray-600 hover:text-white rounded-md hover:cursor-pointer"
+              id="cart-icon"
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a
+              href="/auth/login/index.html"
+              id="login-btn"
+              class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-600 hover:text-white rounded text-base md:mt-0 shadow-md shadow-gray-300"
+            >
+              Login
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-4 h-4 ml-1"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+
+            <a
+              href="/auth/signup/index.html"
+              id="signup-btn"
+              class="inline-flex items-center bg-gray-600 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 hover:text-black rounded text-base text-white md:mt-0 shadow-md shadow-gray-300"
+            >
+              Signup
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-4 h-4 ml-1"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+            <a
+              href="/"
+              id="logout-btn"
+              class="inline-flex items-center bg-red-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 hover:text-red-500 rounded text-white md:mt-0 shadow-md shadow-gray-300"
+            >
+              Logout
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-4 h-4 ml-1"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
     <section class="text-gray-600 body-font min-h-[100vh] flex items-center">
       <div
         class="container mx-auto px-8 flex justify-center flex-wrap items-center"
