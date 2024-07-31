@@ -26,6 +26,7 @@ const subTotalPrice = document.getElementById("sub-total");
 const deliveryChargesEL = document.getElementById("delivery-charges");
 
 let userId = { id: "" };
+let deliveryChargesValue = 0;
 
 onAuthStateChanged(auth, async (user) => {
   cartProductsEl.innerHTML = "";
@@ -33,20 +34,20 @@ onAuthStateChanged(auth, async (user) => {
   if (user) {
     await fetchCartProducts();
     showButtons();
-    await caartProducts();
+    // await caartProducts();
   } else {
     hideButtons();
   }
 });
 
 // const cartId = { cartId: "" };
-async function caartProducts() {
-  const q = query(collection(db, "cart"), where("userId", "==", userId.id));
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    console.log(doc.id, " => ", doc.data());
-  });
-}
+// async function caartProducts() {
+//   const q = query(collection(db, "cart"), where("userId", "==", userId.id));
+//   const querySnapshot = await getDocs(q);
+//   querySnapshot.forEach((doc) => {
+//     console.log(doc.id, " => ", doc.data());
+//   });
+// }
 // await caartProducts();
 
 async function fetchCartProducts() {
@@ -63,7 +64,7 @@ async function fetchCartProducts() {
     const querySnapshot = await getDocs(q);
     // Use Promise.all to handle all fetch operations concurrently
     const fetchPromises = querySnapshot.docs.map(async (singleDoc) => {
-      const { productId, quantity, userId, deliveryCharges } = singleDoc.data();
+      const { productId, quantity, userId } = singleDoc.data();
 
       // Check if the productId has already been processed
       if (!processedProductIds.has(productId)) {
@@ -73,8 +74,8 @@ async function fetchCartProducts() {
         // Only process valid products
         if (product) {
           console.log("Product data:", product, singleDoc.data());
-          cartProductsData.push({ product, quantity, userId, deliveryCharges });
-          displayProduct(product, quantity, singleDoc.id, deliveryCharges);
+          cartProductsData.push({ product, quantity, userId });
+          displayProduct(product, quantity, singleDoc.id);
           processedProductIds.add(productId); // Add to set after processing
         }
       }
@@ -113,7 +114,7 @@ async function updatePrices() {
         // Only process valid products
         if (product) {
           console.log("Product data:", product, singleDoc.data());
-          cartProductsData.push({ product, quantity, userId, deliveryCharges });
+          cartProductsData.push({ product, quantity, userId });
           // displayProduct(product, quantity, singleDoc.id);
           processedProductIds.add(productId); // Add to set after processing
         }
@@ -123,7 +124,7 @@ async function updatePrices() {
     // Wait for all fetch operations to complete
     await Promise.all(fetchPromises);
     await fetchProductPrices();
-    console.log("All done", cartProductsData);
+    console.log("update All done", cartProductsData);
   } catch (error) {
     console.log("Error setting up real-time listener:", error);
   }
@@ -134,14 +135,14 @@ function calculateTotalPrice() {
   let totalPrice = 0;
   let deliveryCharges = 0;
   cartProductsData.forEach((product) => {
-    console.log("Product:", product);
     const productPrice = +product.product.productPrice.slice(1);
     const quantity = product.quantity;
-    deliveryCharges = +product.deliveryCharges;
+    // deliveryCharges = product.deliveryCharges;
     totalPrice += productPrice * quantity;
+    // console.log("delivery carhges totla price==> :", deliveryCharges);
     // console.log(totalPrice);
   });
-  return { totalPrice, deliveryCharges };
+  return totalPrice;
 }
 
 // Function to fetch product prices and calculate the total price of cart products
@@ -155,10 +156,10 @@ async function fetchProductPrices() {
         product.product.productPrice = productData.productPrice;
       }
     }
-    const { totalPrice, deliveryCharges } = calculateTotalPrice();
+    const totalPrice = calculateTotalPrice();
     subTotalPrice.innerHTML = `$${totalPrice}.00`;
-    totalFinalPriceEl.innerHTML = `$${totalPrice + deliveryCharges}.00`;
-    deliveryChargesEL.innerHTML = `$${deliveryCharges}.00`;
+    totalFinalPriceEl.innerHTML = `$${+totalPrice + +deliveryChargesValue}.00`;
+    // deliveryChargesEL.innerHTML = `$${deliveryCharges}.00`;
     console.log("Total price:", totalPrice);
   } catch (error) {
     console.log("Error fetching product prices:", error);
@@ -189,7 +190,7 @@ async function increment(el) {
   const quantity = +quantityInput.value;
   const totalPriceEl = el.parentElement.nextElementSibling;
   const totalPrice = +productPrice * (quantity + 1);
-  const deliveryCharges = +el.dataset.deliveryCharges;
+  // const deliveryCharges = +el.dataset.deliveryCharges;
 
   totalPriceEl.innerHTML = `$${totalPrice}.00`;
   quantityInput.value = quantity + 1;
@@ -203,8 +204,7 @@ async function increment(el) {
     updateCartData(el.dataset.cartId, quantity + 1);
     const subtotalPrice = calculateTotalPrice();
     subTotalPrice.innerHTML = `$${subtotalPrice}.00`;
-    totalFinalPriceEl.innerHTML = `$${subtotalPrice + deliveryCharges}.00`;
-    deliveryChargesEL.innerHTML = `$${deliveryCharges}.00`;
+    totalFinalPriceEl.innerHTML = `$${subtotalPrice + deliveryChargesValue}.00`;
   } catch (error) {
     console.log(error);
   }
@@ -217,7 +217,7 @@ async function decrement(el) {
   if (quantity > 1) {
     quantityInput.value = quantity - 1;
     const productPrice = +el.dataset.productPrice.slice(1);
-    const deliveryCharges = +el.dataset.deliveryCharges;
+    // const deliveryCharges = +el.dataset.deliveryCharges;
     const totalPriceEl = el.parentElement.nextElementSibling;
     const totalPrice = +productPrice * (quantity - 1);
     totalPriceEl.innerHTML = `$${totalPrice}.00`;
@@ -231,8 +231,9 @@ async function decrement(el) {
       updateCartData(el.dataset.cartId, quantity - 1);
       const subtotalPrice = calculateTotalPrice();
       subTotalPrice.innerHTML = `$${subtotalPrice}.00`;
-      totalFinalPriceEl.innerHTML = `$${subtotalPrice + deliveryCharges}.00`;
-      deliveryChargesEL.innerHTML = `$${deliveryCharges}.00`;
+      totalFinalPriceEl.innerHTML = `$${
+        subtotalPrice + deliveryChargesValue
+      }.00`;
     } catch (error) {
       console.log(error);
     }
@@ -330,14 +331,23 @@ document.querySelectorAll('input[name="courier"]').forEach((radio) => {
     console.log("radio value", radio.value);
     // updateDeliveryRate(radio.value);
     const deliveryCharges = updateDeliveryRate(radio.value);
-    console.log("deliveryCharges", deliveryCharges);
+    deliveryChargesValue = deliveryCharges;
+    console.log(
+      "deliveryCharges radio value==> ",
+      deliveryCharges,
+      "deliveryChargesValue",
+      deliveryChargesValue
+    );
     deliveryChargesEL.innerHTML = `$${deliveryCharges}.00`;
   }
-  radio.addEventListener("change", (e) => {
+  radio.addEventListener("change", async (e) => {
     console.log("radio value", e.target.value);
     // updateDeliveryRate(e.target.value);
     const deliveryCharges = updateDeliveryRate(radio.value);
     console.log("deliveryCharges", deliveryCharges);
     deliveryChargesEL.innerHTML = `$${deliveryCharges}.00`;
+    totalFinalPriceEl.innerHTML = `$${
+      +calculateTotalPrice() + +deliveryCharges
+    }.00`;
   });
 });
