@@ -22,6 +22,7 @@ console.log(searchParams.get("productId"));
 const productPriceEl = document.getElementById("product-price");
 const productNameEl = document.getElementById("product-name");
 const productImageEl = document.getElementById("product-image");
+const productDescriptionEl = document.getElementById("productDescription");
 const addToCartBtn = document.getElementById("add-to-cart-btn");
 const loginErrorModal = document.getElementById("loginErrorModal");
 const modalCloseBtn = document.getElementById("closeLoginErrorModal");
@@ -35,6 +36,7 @@ getDoc(docRef).then((doc) => {
   const product = doc.data();
   productPriceEl.innerHTML = product.productPrice;
   productNameEl.innerHTML = product.productName;
+  productDescriptionEl.innerHTML = product.productDescription;
   productImageEl.src = product.productImage;
 });
 

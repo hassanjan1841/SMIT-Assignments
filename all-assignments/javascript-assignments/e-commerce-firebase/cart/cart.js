@@ -135,7 +135,7 @@ function calculateTotalPrice() {
   let totalPrice = 0;
   let deliveryCharges = 0;
   cartProductsData.forEach((product) => {
-    const productPrice = +product.product.productPrice.slice(1);
+    const productPrice = +product.product.productPrice;
     const quantity = product.quantity;
     // deliveryCharges = product.deliveryCharges;
     totalPrice += productPrice * quantity;
@@ -185,7 +185,7 @@ async function fetchProductData(productId) {
 // Function to increment the quantity of a product
 // Function to increment the quantity of a product
 async function increment(el) {
-  const productPrice = +el.dataset.productPrice.slice(1);
+  const productPrice = +el.dataset.productPrice;
   const quantityInput = el.previousElementSibling;
   const quantity = +quantityInput.value;
   const totalPriceEl = el.parentElement.nextElementSibling;
@@ -216,7 +216,7 @@ async function decrement(el) {
   const quantity = parseInt(quantityInput.value);
   if (quantity > 1) {
     quantityInput.value = quantity - 1;
-    const productPrice = +el.dataset.productPrice.slice(1);
+    const productPrice = +el.dataset.productPrice;
     // const deliveryCharges = +el.dataset.deliveryCharges;
     const totalPriceEl = el.parentElement.nextElementSibling;
     const totalPrice = +productPrice * (quantity - 1);
@@ -300,7 +300,7 @@ function displayProduct(product, quantity, cartId, deliveryCharges) {
           </button>
         </div>
         <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 w-full max-w-[176px] text-center">
-          $${+productPrice.slice(1) * quantity}.00
+          $${+productPrice * quantity}.00
         </h6>
       </div>
     </div>`;
@@ -331,7 +331,7 @@ document.querySelectorAll('input[name="courier"]').forEach((radio) => {
     console.log("radio value", radio.value);
     // updateDeliveryRate(radio.value);
     const deliveryCharges = updateDeliveryRate(radio.value);
-    deliveryChargesValue = deliveryCharges;
+    deliveryChargesValue = +deliveryCharges;
     console.log(
       "deliveryCharges radio value==> ",
       deliveryCharges,
