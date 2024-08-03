@@ -12,27 +12,21 @@ import {
 import {
   hideButtons,
   hideLoader,
+  logoutFunction,
   showButtons,
   showLoader,
   showProducts,
 } from "./utils/utils.js";
 
-const logoutBtn = document.getElementById("logout-btn");
 const heroTitle = document.getElementById("hero-title");
 const heroImage = document.getElementById("hero-image");
 const heroDescription = document.getElementById("hero-description");
 toggleNavbar();
 showLoader();
-
+logoutFunction();
 // document.addEventListener("DOMContentLoaded", () => {
 //   hideLoader();
 // });
-
-logoutBtn?.addEventListener("click", () => {
-  signOut(auth).then(() => {
-    console.log("User signed out");
-  });
-});
 
 onAuthStateChanged(auth, (user) => {
   //   toggleButtons(user);

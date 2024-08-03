@@ -4,12 +4,13 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
 } from "../../utils/firebaseConfig.js";
-import { hideButtons, showButtons } from "../../utils/utils.js";
+import { hideButtons, logoutFunction, showButtons } from "../../utils/utils.js";
 toggleNavbar();
 onAuthStateChanged(auth, (user) => {
   if (user) {
     window.location.href = "/";
     showButtons();
+    logoutFunction();
   } else {
     hideButtons();
   }

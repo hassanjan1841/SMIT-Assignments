@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" name="hello" id="hello" />
+    <script>
+      const hello = document.getElementById("hello");
+      hello.addEventListener("input", () => {
+        console.log(hello.value);
+        if (hello.value < 7 && hello.value > 0) {
+          const warka = getInput(hello.value);
+          console.log("warka", warka);
+        } else {
+          hello.value = "1";
+        }
+      });
+      const getInput = (value) => {
+        switch (value) {
+          case 1:
+            return "100000";
+          case 2:
+            return "20000";
+          case 3:
+            return "3000";
+          case 4:
+            return "400";
+          case 5:
+            return "50";
+          case 6:
+            return "6";
+        }
+      };
+    </script>
+  </body>
+</html>

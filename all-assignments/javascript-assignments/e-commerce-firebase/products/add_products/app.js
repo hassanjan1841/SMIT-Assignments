@@ -1,4 +1,3 @@
-
 import {
   addDoc,
   auth,
@@ -10,7 +9,7 @@ import {
   storage,
   uploadBytes,
 } from "../../utils/firebaseConfig.js";
-import { hideButtons, showButtons } from "../../utils/utils.js";
+import { hideButtons, logoutFunction, showButtons } from "../../utils/utils.js";
 import { toggleNavbar } from "../single_product/utils.js";
 
 toggleNavbar();
@@ -18,6 +17,7 @@ onAuthStateChanged(auth, (user) => {
   //   toggleButtons(user);
   if (user) {
     showButtons();
+    logoutFunction();
   } else {
     hideButtons();
     window.location.href = "../auth/login/index.html";

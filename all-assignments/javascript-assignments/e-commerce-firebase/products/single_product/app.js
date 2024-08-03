@@ -11,6 +11,7 @@ import {
 import {
   hideButtons,
   hideLoader,
+  logoutFunction,
   showButtons,
   showLoader,
 } from "../../utils/utils.js";
@@ -76,6 +77,7 @@ onAuthStateChanged(auth, (user) => {
   });
   if (user) {
     showButtons();
+    logoutFunction();
   } else {
     hideButtons();
   }

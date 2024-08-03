@@ -102,3 +102,12 @@ export const showProducts = (products) => {
   });
   // hideLoader();
 };
+
+export const logoutFunction = () => {
+  const logoutBtn = document.getElementById("logout-btn");
+  logoutBtn?.addEventListener("click", () => {
+    signOut(auth).then(() => {
+      console.log("User signed out");
+    });
+  });
+};
